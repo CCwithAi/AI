@@ -1,0 +1,253 @@
+<!DOCTYPE html><html lang="en"><head><meta name="description" content="Blog home page / landing page contains the latest Ai news articles uploaded everyday about the latest breaking news."><meta name="twitter:description" content="Blog home page / landing page contains the latest Ai news articles uploaded everyday about the latest breaking news."><meta name="robots" content="index, follow"><meta property="og:locale" content="en_UK"><meta property="og:title" content="CCwithAI's Blog Site - AI news with articles on how to use AI in your business and personal life."><link rel="canonical" href="https://ccwithai.github.io/AI/"><meta property="og:url" content="https://ccwithai.github.io/AI/"><meta property="og:site_name" content="CCwithAi - Blog - Latest AI News - AI Guides"><meta name="twitter:image:src" content="https://ccwithai.github.io/AI/assets/images/32f15cde15.png"><meta property="og:image" content="https://ccwithai.github.io/AI/assets/images/32f15cde15.png"><meta name="twitter:card" content="summary_large_image"><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@hodgef/slate-theme@3.0.9/build/post.css" rel="stylesheet"><title>Pydantic AI Part 3 - AI</title></head><body><script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script><div id="root" class="is-ssr"><div class="page page-post"><header class="page-header"><div class="header-nav"><div class="container"><nav class="row navbar navbar-expand-lg navbar-dark"><a class="navbar-brand logo" href="https://ccwithai.github.io/AI/">AI</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent"><ul class="page-menu navbar-nav"><li class="nav-item"><a class="nav-link" href="https://ccwithai.github.io/AI/">Home</a><div class="dropdown-menu"></div></li><li class="nav-item active"><a class="nav-link" href="https://ccwithai.github.io/AI/blog/">Blog</a><div class="dropdown-menu"></div></li></ul></div></nav></div></div></header><main><div class="container main-container"><div class="row"><div class="col"><div class="content"><div class="post-title-container mb-2"><div class="row justify-content-between"><div class="col-12 col-lg d-lg-flex flex-column justify-content-center"><h1 class="mb-0">Pydantic AI Part 3</h1><div class="text-muted mt-3 date post-date d-flex align-items-center" title="08 Feb, 2025"><i class="fa fa-clock-o mr-2"></i><span>Published on <!-- -->08 Feb, 2025</span></div></div></div></div><div class="featured-image" style="background-image:url(https://ccwithai.github.io/AI/assets/images/32f15cde15.png)"></div><section class="post-content mb-3 pb-5"><div class="post-inner-content"><div class="wrapper">
+    <h1>Building AI Agents with Pydantic AI: Structured Data Output</h1>
+    <p>This guide demonstrates how to create AI agents using Pydantic AI that output structured data in the form of Pydantic models. This approach improves reliability and predictability in enterprise-grade AI applications.</p>
+
+    <h2>Why Structured Data Matters</h2>
+    <ul>
+        <li><strong>Reliability:</strong> Strongly-typed, validated data objects are crucial for enterprise applications.</li>
+        <li><strong>Predictability:</strong> Reduces unexpected errors and crashes caused by unfiltered LLM outputs.</li>
+        <li><strong>Data Integrity:</strong> Ensures data consistency and facilitates downstream processing.</li>
+    </ul>
+
+    <h2>Example 1: Hello World (Simple Calculation)</h2>
+    <p>This example demonstrates a basic agent that performs a calculation and outputs the result as a Pydantic model.</p>
+    <ol>
+        <li><strong>Import Libraries:</strong>
+            <pre>from pydantic import BaseModel
+from poe_ai import Agent, PoeAiConfig
+            </pre>
+        </li>
+        <li><strong>Configure Logging (Optional):</strong> Use a logging framework like Logfire for detailed tracking (implementation not shown in the extract, but mentioned).</li>
+        <li><strong>Define the LLM Model:</strong>
+            <pre>config = PoeAiConfig(llm_model_name="gpt-4-0613")
+            </pre>
+            <p>Replace "gpt-4-0613" with your preferred model name (e.g., from OpenAI).</p>
+        </li>
+        <li><strong>Define the Output Model:</strong>
+            <pre>class Calculation(BaseModel):
+    result: int
+            </pre>
+            <p>Creates a Pydantic model named Calculation with a single integer field result.</p>
+        </li>
+        <li><strong>Create the Agent:</strong>
+            <pre>agent = Agent(config=config, result_type=Calculation)
+            </pre>
+            <p>Initializes an Agent instance.</p>
+        </li>
+        <li><strong>Run the Agent and Get the Result:</strong>
+            <pre>result = await agent.run_async(prompt="What is 100 + 300?")
+print(result)
+            </pre>
+            <p>agent.run_async() executes the agent with the given prompt.</p>
+        </li>
+    </ol>
+
+    <h2>Example 2: Capital Cities (Multi-field Model)</h2>
+    <p>This example demonstrates a more complex Pydantic model with multiple fields.</p>
+    <ol>
+        <li><strong>Import Libraries:</strong>
+            <pre>from pydantic import BaseModel
+from poe_ai import Agent, PoeAiConfig
+            </pre>
+        </li>
+        <li><strong>Define the LLM Model:</strong> (Same as Example 1, adjust as needed)
+            <pre>config = PoeAiConfig(llm_model_name="gpt-4-0613")
+            </pre>
+        </li>
+        <li><strong>Define the Output Model:</strong>
+            <pre>class Capital(BaseModel):
+    name: str
+    year_founded: int
+    short_history: str
+            </pre>
+            <p>Creates a Capital model with fields for name (string), year founded (integer), and a short history (string).</p>
+        </li>
+        <li><strong>Create the Agent:</strong>
+            <pre>agent = Agent(config=config, result_type=Capital)
+            </pre>
+            <p>Sets the result_type to Capital.</p>
+        </li>
+        <li><strong>Run the Agent:</strong>
+            <pre>result = await agent.run_async(prompt="What is the capital of the United States?")
+print(result)
+            </pre>
+            <p>Asks a question about a capital city.</p>
+        </li>
+    </ol>
+
+    <h2>Example 3: Invoice Parsing</h2>
+    <p>This example demonstrates parsing unstructured invoice data into a structured Pydantic model.</p>
+    <ol>
+        <li><strong>Prepare Invoice Data:</strong>
+            <p>Create a sample invoice in a format like Markdown (invoice.md). Include fields like invoice number, date, items, prices, etc.</p>
+        </li>
+        <li><strong>Generate Pydantic Model (Optional - Using an LLM):</strong>
+            <p>Use GPT-4-All (or similar) to generate a Pydantic model based on the invoice raw data.</p>
+        </li>
+        <li><strong>Import Libraries:</strong>
+            <pre>from pydantic import BaseModel, Field
+from typing import List, Dict
+from poe_ai import Agent, PoeAiConfig
+            </pre>
+        </li>
+        <li><strong>Define the LLM Model:</strong> (Same as before)
+            <pre>config = PoeAiConfig(llm_model_name="gpt-4-0613")
+            </pre>
+        </li>
+        <li><strong>Paste/Define the Pydantic Model:</strong>
+            <pre>class Invoice(BaseModel):
+    invoice_number: str
+    date_issued: str
+    services_provided: List[str]
+    subtotal: float
+    tax_rate: float
+    tax_amount: float
+    total_amount_due: float
+    payment_instructions: Dict[str, str]
+            </pre>
+            <p>Paste the generated Pydantic model code (or your manually created one) here.</p>
+        </li>
+        <li><strong>Create the Agent:</strong>
+            <pre>agent = Agent(config=config, result_type=Invoice)
+            </pre>
+            <p>Set result_type=Invoice.</p>
+        </li>
+        <li><strong>Run with Textual Prompt (First Run):</strong>
+            <pre>result = await agent.run_async(prompt="Can you generate an invoice for a consulting company...")
+print(result)
+            </pre>
+            <p>Provide a textual description of the invoice you want to generate.</p>
+        </li>
+    </ol>
+
+    <h2>Example 4: Resume Parsing</h2>
+    <p>This example demonstrates parsing resume data.</p>
+    <ol>
+        <li><strong>Prepare Resume Data:</strong>
+            <p>Create a sample resume in Markdown (resume.md).</p>
+        </li>
+        <li><strong>Generate Pydantic Model (Optional):</strong>
+            <p>Use GPT-4-All (or similar) to generate a Pydantic model based on the resume raw data.</p>
+        </li>
+        <li><strong>Import Libraries:</strong>
+            <pre>from pydantic import BaseModel, Field
+from typing import List, Optional
+from poe_ai import Agent, PoeAiConfig
+            </pre>
+        </li>
+        <li><strong>Define the LLM Model:</strong> (Same as before)
+            <pre>config = PoeAiConfig(llm_model_name="gpt-4-0613")
+            </pre>
+        </li>
+        <li><strong>Paste/Define the Pydantic Model:</strong>
+            <pre>class Experience(BaseModel):
+    company: str
+    position: str
+    start_date: str
+    end_date: str
+
+class Education(BaseModel):
+    institution_name: str
+    degree: str
+    start_date: str
+    end_date: str
+
+class Resume(BaseModel):
+    full_name: str
+    contact_information: str
+    experience: List[Experience]
+    education: List[Education]
+    certifications: List[str]
+    skills: List[str]
+    summary: str = Field("") #Optional Field
+            </pre>
+            <p>Paste the generated Pydantic model code (or your manually created one) here.</p>
+        </li>
+        <li><strong>Create the Agent:</strong>
+            <pre>agent = Agent(config=config, result_type=Resume, system_prompt="You are an HR representative...")
+            </pre>
+            <p>Set result_type=Resume.</p>
+        </li>
+        <li><strong>Run with Textual Prompt (First Run):</strong>
+            <pre>result = await agent.run_async(prompt="Write a resume")
+print(result)
+            </pre>
+            <p>Asks a question about a resume.</p>
+        </li>
+    </ol>
+
+    <h2>Example 5: Real Estate Listing Parsing</h2>
+    <p>This example demonstrates parsing data from a real estate listing webpage.</p>
+    <ol>
+        <li><strong>Choose a Listing Page:</strong>
+            <p>Select a real estate listing page (e.g., from homes.com, Redfin, Zillow).</p>
+        </li>
+        <li><strong>Generate Pydantic Model (Optional):</strong>
+            <p>Use GPT-4-All (or similar) to generate a Pydantic model based on the listing page.</p>
+        </li>
+        <li><strong>Import Libraries:</strong>
+            <pre>from pydantic import BaseModel, Field
+from typing import List, Optional
+from poe_ai import Agent, PoeAiConfig
+from playwright.async_api import async_playwright
+from bs4 import BeautifulSoup
+            </pre>
+        </li>
+        <li><strong>Define the LLM Model:</strong> (Same as before)
+            <pre>config = PoeAiConfig(llm_model_name="gpt-4-0613")
+            </pre>
+        </li>
+        <li><strong>Paste/Define the Pydantic Model:</strong>
+            <pre>class Address(BaseModel):
+    street: str
+    city: str
+    state: str
+    zip_code: str
+
+class PropertyFeatures(BaseModel):
+    bedrooms: int
+    bathrooms: float
+    square_footage: int
+    # Add other features...
+
+class AdditionalInformation(BaseModel):
+    price: str
+    listing_agent: str
+    last_updated: str
+
+class Property(BaseModel):
+    address: Address
+    info: AdditionalInformation
+    type: str
+    mls_id: str
+    features: PropertyFeatures
+            </pre>
+            <p>Paste the generated Pydantic model code (or your manually created one) here.</p>
+        </li>
+        <li><strong>Create the Agent:</strong>
+            <pre>agent = Agent(config=config, result_type=Property, system_prompt="You are a real estate agent...")
+            </pre>
+            <p>Set result_type=Property.</p>
+        </li>
+        <li><strong>Run with Textual Prompt (First Run):</strong>
+            <pre>result = await agent.run_async(prompt="Describe a property located in Virginia...")
+print(result)
+            </pre>
+            <p>Asks a question about a property.</p>
+        </li>
+    </ol>
+
+    <h2>Key Takeaways and Further Steps</h2>
+    <ul>
+        <li><strong>System Prompts:</strong> Experiment with different system prompts to fine-tune the agent's behavior.</li>
+        <li><strong>Error Handling:</strong> Add error handling (try-except blocks) to handle cases where the LLM might not produce valid output conforming to the Pydantic model.</li>
+        <li><strong>Data Pipelines:</strong> Integrate these agents into larger data pipelines for more complex tasks.</li>
+        <li><strong>Model Choice:</strong> The choice of the underlying LLM is critical. Test with various models to determine which best fulfills the needs of each project.</li>
+        <li><strong>Security:</strong> Always remember to use secure practices. Never expose your API Key in the code. Use environment variables instead.</li>
+        <li><strong>Iterative Refinement:</strong> The process of defining Pydantic models and prompts is often iterative. Expect to refine your models and prompts based on the results you get.</li>
+    </ul>
+
+    <p>This comprehensive guide, with its detailed steps and multiple examples, provides a solid foundation for building AI agents that produce reliable and structured data using Pydantic AI. Remember to adapt the code examples to your specific use cases and data structures.</p>
+</div></div></section><section class="mb-3"><h4 class="section-title explore-more"><span>Explore More</span></h4><div class=""><div class="card mb-3 d-flex flex-row has-img"><div class="col-2 p-0 explore-featured-image"><a class="card-img-left card-has-img" href="https://ccwithai.github.io/AI/blog/pydantic_ai_course_part_1/"><img src="https://ccwithai.github.io/AI/assets/images/b217fedd84.png" loading="lazy"></a></div><div class="card-body col"><a class="card-title" href="https://ccwithai.github.io/AI/blog/pydantic_ai_course_part_1/">Pydantic AI Course Part 1</a><p class="card-text">Hey everyone! I&#x27;ve been diving into the world of A...</p></div></div></div></section></div></div></div></div></main><footer class="page-footer"><div class="container"><div class="row"><div class="col col-12 col-md-6"><span>© <!-- -->AI</span></div><div class="col col-12 col-md-6 mt-3 mt-md-0 d-flex justify-content-md-end"><a href="https://prss.io" class="d-flex align-items-center footer-shoutout" target="_blank" rel="noopener" title="Powered by PRSS Site Creator"><img class="prss-footer-image mr-1" src="data:image/png;base64,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" width="15"><span class="font-weight-bold prss-tag">PRSS Site Creator</span></a></div></div></div></footer></div></div>
+
+</body></html>
