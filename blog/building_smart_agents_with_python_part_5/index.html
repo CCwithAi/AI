@@ -1,335 +1,350 @@
 <!DOCTYPE html><html lang="en"><head><meta name="description" content="Blog home page / landing page contains the latest Ai news articles uploaded everyday about the latest breaking news."><meta name="twitter:description" content="Blog home page / landing page contains the latest Ai news articles uploaded everyday about the latest breaking news."><meta name="robots" content="index, follow"><meta property="og:locale" content="en_UK"><meta property="og:title" content="CCwithAI's Blog Site - AI news with articles on how to use AI in your business and personal life."><link rel="canonical" href="https://ccwithai.github.io/AI/"><meta property="og:url" content="https://ccwithai.github.io/AI/"><meta property="og:site_name" content="CCwithAi - Blog - Latest AI News - AI Guides"><meta name="twitter:image:src" content="https://ccwithai.github.io/AI/assets/images/c1401feb22.png"><meta property="og:image" content="https://ccwithai.github.io/AI/assets/images/c1401feb22.png"><meta name="twitter:card" content="summary_large_image"><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@hodgef/slate-theme@3.0.9/build/post.css" rel="stylesheet"><title>Pydantic-AI: Building Smart Agents with Python – Part 5 - AI</title></head><body><script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script><div id="root" class="is-ssr"><div class="page page-post"><header class="page-header"><div class="header-nav"><div class="container"><nav class="row navbar navbar-expand-lg navbar-dark"><a class="navbar-brand logo" href="https://ccwithai.github.io/AI/">AI</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent"><ul class="page-menu navbar-nav"><li class="nav-item"><a class="nav-link" href="https://ccwithai.github.io/AI/">Home</a><div class="dropdown-menu"></div></li><li class="nav-item active"><a class="nav-link" href="https://ccwithai.github.io/AI/blog/">Blog</a><div class="dropdown-menu"></div></li></ul></div></nav></div></div></header><main><div class="container main-container"><div class="row"><div class="col"><div class="content"><div class="post-title-container mb-2"><div class="row justify-content-between"><div class="col-12 col-lg d-lg-flex flex-column justify-content-center"><h1 class="mb-0">Pydantic-AI: Building Smart Agents with Python – Part 5</h1><div class="text-muted mt-3 date post-date d-flex align-items-center" title="08 Feb, 2025"><i class="fa fa-clock-o mr-2"></i><span>Published on <!-- -->08 Feb, 2025</span></div></div></div></div><div class="featured-image" style="background-image:url(https://ccwithai.github.io/AI/assets/images/c1401feb22.png)"></div><section class="post-content mb-3 pb-5"><div class="post-inner-content">
     <div class="wrapper">
         <article class="post">
-            
             <header class="post-header">
-                <h1 class="post-title">Pydantic-AI: Building Smart Agents with Python – Part 5</h1>
+                <h1 class="post-title">Creating AI Agents with Custom System Prompts in Pydantic AI</h1>
                 <p class="post-meta"></p>
             </header>
 
             <div class="post-content">
-                <p>Hello welcome to CCwithAI and our fifth instalment of our series on Pydantic-AI. In this part, I continue the deep dive into this exciting framework that empowers us to build smart AI agents with simple Python code.
-                    Building on our previous sessions, I set out to further understand its core features and put them to the test through hands-on experiments. I’m also very happy to share insights and practical examples that have helped me refine my agent-building.</p>
-                <hr>
-                <h2 id="what-i-learned-about-pydantic-ai-and-agent-building">What I Learned About Pydantic-AI and Agent Building</h2>
-                <p>A central concept I explored in this part was the idea of <strong>function tools</strong>. These tools act as auxiliary helpers, endowing your AI agent with additional information and capabilities. Imagine an agent that needs to answer a question requiring up-to-date data—data it wouldn’t inherently possess. That’s where a function tool comes in, fetching the necessary information and feeding it to the agent for a more accurate response.</p>
-                <hr>
-                <h2 id="why-function-tools-are-crucial-for-ai-agents">Why Function Tools are Crucial for AI Agents</h2>
-                <p>It turns out that function tools are indispensable for several reasons:</p>
+                <p>Have you ever felt like your AI agent interactions were falling a bit flat? Like you weren't quite getting the focused, tailored responses you needed? I certainly have. It's a common frustration when working with large language models (LLMs). You know the potential is there, but sometimes it feels like you're speaking a slightly different language. This is where the magic of system prompts comes in.</p>
+
+                <p>This post will dive deep into system prompts within the Pydantic-AI framework. We'll explore how crafting the <em>right</em> system prompt can completely transform your agent's behaviour, personality, and, ultimately, its effectiveness. By the end, you'll have a solid understanding of both static and dynamic system prompts, and be confident in creating your own to build truly powerful and useful AI agents. My core belief, and the thesis of this article is that effective use of system prompts is <em>the</em> key to unlocking the true power of any agent framework, especially Pydantic-AI.</p>
+
+                <h2 id="why-system-prompts-matter-shaping-your-ai-s-persona">Why System Prompts Matter: Shaping Your AI's Persona</h2>
+                <p>Think of a system prompt as the foundational instructions you give your AI agent. It's not just about the specific question you ask (the user prompt); it's about setting the stage, defining the role, and providing the context for <em>how</em> your agent should respond. It's like giving an actor a character description and backstory before they step onto the stage.</p>
+
+                <p>While user prompts are essential, they often operate in a vacuum. A system prompt provides the crucial framework. It frames the agent's:</p>
                 <ul>
-                    <li><strong>Filling in Knowledge Gaps:</strong>
-                        <br>
-                        Even the most advanced AI models have limitations. Function tools supply the specific, real-time data needed to bridge those gaps.
+                    <li><strong>Personality:</strong> Is your agent a seasoned business coach, a meticulous code reviewer, or a helpful historian?</li>
+                    <li><strong>Behaviour:</strong> Should your agent be concise and direct, or elaborate and explanatory?</li>
+                    <li><strong>Scope:</strong> What areas of knowledge is your agent an expert in? What is it <em>not</em> designed to handle?</li>
+                </ul>
+
+                <p>I've learned through countless experiments (and a few frustrating failures!) that crafting a well-defined system prompt is often the difference between a generic, somewhat helpful response and a truly insightful, tailored one.</p>
+
+                <h3>Static vs. Dynamic System Prompts: Two Sides of the Same Coin</h3>
+                <p>In Pydantic-AI, we have two main types of system prompts to work with:</p>
+                <ul>
+                    <li><strong>Static System Prompts:</strong> These are the workhorses. You define them upfront, usually when you're creating your agent. They're perfect for setting the overall tone and defining core capabilities.</li>
+                    <li><strong>Dynamic System Prompts:</strong> These are where things get really interesting. They allow you to inject information that might only be available at runtime. This could be anything from today's date to a variable extracted from a user's input.</li>
+                </ul>
+                <p>An agent can, and often should, have both static and dynamic prompts. They work together to create a comprehensive and adaptable context. I'll be going through several examples that utilize each.</p>
+
+                <hr>
+
+                <h2 id="hands-on-examples-building-better-agents-step-by-step">Hands-On Examples: Building Better Agents, Step-by-Step</h2>
+
+                <p>I learn best by doing, so let's jump into some practical examples. I've put together a series of scenarios, each building on the previous one, to illustrate the power and flexibility of system prompts. You could follow along yourself – all the code examples can be adapted from the original video's GitHub repository (though I won't link to it directly here, as per the instructions).</p>
+
+                <h3>Example 1: The "Hello World" Business Coach</h3>
+                <p>Our first example is a simple "Hello World" scenario. We'll create a business coach agent designed to help technology startups. The system prompt is straightforward:</p>
+                <blockquote>
+                    <p>You're an experienced business coach and startup mentor specializing in guiding technology startups from ideation to sustainable growth.</p>
+                </blockquote>
+                <p>Even this basic prompt makes a difference. When asked about creating a startup strategy for a Software-as-a-Service (SaaS) business, the agent provides a reasonably comprehensive list of considerations: market research, validation, gamification, user acquisition, and retention.</p>
+
+                <p>However, it's still fairly generic. It's better than nothing, but it's not groundbreaking. This highlights the importance of iterative refinement – starting simple and building up complexity.</p>
+
+                <h3>Example 2: The Basic Code-Writing Agent</h3>
+                <p>Next, we'll build an agent that can write code. We'll ask it to create a functional React component that displays a user profile, using Zustand for state management and Tailwind CSS for styling. The system prompt is again relatively simple:</p>
+                <blockquote>
+                    <p>You are a coding assistant that creates code based on user requests.</p>
+                </blockquote>
+                <p>The agent produces a decent result, including instructions for installing dependencies, defining the Zustand store, and creating the React component. It even integrates the component into a larger application structure.</p>
+
+                <h3>Example 3: Leveling Up the Code-Writing Agent</h3>
+                <p>Here's where we start to see the real power of a well-crafted system prompt. We'll significantly expand the prompt for our code-writing agent, adding details about documentation, styling, testing, optimization, and even the requirement to generate a <code>readme.md</code> file</p>
+
+                <p>Here’s the Python code for Leveling Up the Code-Writing Agent:</p>
+
+                <pre><code class="language-python">from pydantic_ai import Agent
+from pydantic_ai.models import OpenAIModel
+
+model = OpenAIModel(model_name="gpt-4")
+
+system_prompt = """You are an expert coding assistant. When writing code, you should do the following:
+- add documentation and comments
+- ensure code is properly styled (e.g. PEP8 for Python, Prettier and eslint for Javascript/Typescript)
+- add tests
+- think about performance and optimization
+- generate a readme.md file which explains how to run and test the code
+"""
+
+coding_agent = Agent(model=model, system_prompt=system_prompt)
+
+result = coding_agent.run_sync(
+    prompt="Create a React component to display a user profile (name, email, picture) using Zustand and Tailwind CSS.")
+print(result)
+</code></pre>
+
+                <hr>
+
+                <h2 id="example-4-invoice-writing-agent---static-system-prompt-with-variable-injection">Example 4: Invoice Writing Agent - Static System Prompt with Variable Injection</h2>
+                <ol>
+                    <li>
+                        <p><strong>Import Date Libraries:</strong></p>
+                        <pre><code class="language-python">from datetime import date
+</code></pre>
                     </li>
-                    <li><strong>Making Things Predictable:</strong>
-                        <br>
-                        When you require your agent to behave in a very particular way, tools can manage portions of the logic, ensuring more reliable outcomes.
+                    <li>
+                        <p><strong>Create a System Prompt Template:</strong> Use a docstring with curly braces <code>{}</code> as placeholders for variables.</p>
+                        <pre><code class="language-python">system_prompt = """You are an invoice writing assistant.
+... (Invoice details) ...
+Use today's date: {today_date}
+...
+"""
+</code></pre>
                     </li>
-                    <li><strong>Integrating with the Real World:</strong>
-                        <br>
-                        These tools enable your agent to connect with external resources such as databases, APIs, or even other Python functions, keeping it in sync with the real world.
+                    <li>
+                        <p><strong>Format the System Prompt:</strong> Inject the variable using <code>.format()</code>.</p>
+                        <pre><code class="language-python">formatted_prompt = system_prompt.format(today_date=date.today())
+invoice_agent = agent(model, system_prompt=formatted_prompt)
+</code></pre>
+                    </li>
+                    <li>
+                        <p><strong>Run with User Prompt:</strong> Provide details for the invoice.</p>
+                        <pre><code class="language-python">result = invoice_agent.run_sync(prompt="Create an invoice for Customer X. Services: Web Dev, AI Consulting, Strategy. Total: $50,000.")
+print(result)
+</code></pre>
+                    </li>
+                </ol>
+
+                <hr>
+
+                <h2 id="example-5-basic-dynamic-system-prompt">Example 5: Basic Dynamic System Prompt</h2>
+                <ol>
+                    <li>
+                        <p><strong>Create Output Model (Pydantic Model):</strong></p>
+                        <pre><code class="language-python">from pydantic import BaseModel
+
+class Capital(BaseModel):
+    name: str
+    year_founded: int
+    history: str
+    comparison: str
+</code></pre>
+                    </li>
+                    <li>
+                        <p><strong>Define the Agent and Dynamic System Prompt:</strong> Use <code>@agent.system_prompt</code> to decorate a function that returns part of the prompt.</p>
+                        <pre><code class="language-python">system_prompt = "You're an experienced historian. Provide capital city information and compare it to another city."
+historian_agent = agent(model, system_prompt=system_prompt, output_model=Capital)
+
+@historian_agent.system_prompt
+def comparison_city(context: RunContext):
+    return f"The city to compare is {context.dependencies['comparison_city']}."
+</code></pre>
+                    </li>
+                    <li>
+                        <p><strong>Run with User Prompt and Dependencies</strong></p>
+                        <pre><code class="language-python">result = historian_agent.run_sync(
+    prompt="What is the capital of the US?",
+    dependencies={"comparison_city": "Paris"}
+)
+print(result)
+</code></pre>
+                    </li>
+                </ol>
+
+                <hr>
+
+                <h2 id="example-6-agent-writing-its-own-dynamic-system-prompt">Example 6: Agent Writing its Own Dynamic System Prompt</h2>
+                <ol>
+                    <li>
+                        <p><strong>Create Output Model (Pydantic Model):</strong></p>
+                        <pre><code class="language-python">from pydantic import BaseModel
+
+class SystemPrompt(BaseModel):
+  prompt: str
+  tags: List[str]
+</code></pre>
+                    </li>
+                    <li>
+                        <p><strong>Create the Prompt-Writing Agent:</strong></p>
+                        <pre><code class="language-python">prompt_writer_system_prompt = """You are an expert prompt writer. Create a system prompt for an AI agent
+based on the user's question.  Do *not* answer the user's question, only generate the prompt.
+Example: Start with 'You are a helpful assistant specialized in...'
+"""
+prompt_writer = agent(model, system_prompt=prompt_writer_system_prompt, output_model=SystemPrompt)
+</code></pre>
+                    </li>
+                    <li>
+                        <p><strong>Create the Assistant Agent:</strong></p>
+                        <pre><code class="language-python">  assistant_agent = agent(model)
+
+  @assistant_agent.system_prompt
+  def generated_prompt(context: RunContext):
+      return context.dependencies["generated_prompt"]
+
+  @assistant_agent.system_prompt
+  def generated_tags(context: RunContext):
+    return " ".join(context.dependencies["generated_tags"])
+</code></pre>
+                    </li>
+                    <li>
+                        <p><strong>Run in a Loop:</strong></p>
+                        <ul>
+                            <li>First, get the system prompt from the <code>prompt_writer</code>.</li>
+                            <li>Then, run the <code>assistant_agent</code> in a loop, passing the generated prompt as a dependency.</li>
+                            <li>Use message history for context retention.</li>
+                        </ul>
+                        <pre><code class="language-python">message_history = []
+user_question = input("Ask a question: ")
+
+# Get the system prompt
+prompt_result = prompt_writer.run_sync(prompt=user_question)
+generated_system_prompt = prompt_result.prompt
+generated_tags = prompt_result.tags
+
+while True:
+    #Run the assistant.
+    result = assistant_agent.run_sync(
+        prompt=user_question,
+        message_history=message_history,
+        dependencies={"generated_prompt": generated_system_prompt, "generated_tags": generated_tags},
+    )
+
+    message_history.append({"role": "user", "content": user_question})
+    message_history.append({"role": "assistant", "content": str(result)})
+
+    print(f"Assistant: {result}")
+    user_question = input("Ask another question (or type 'exit' to quit): ")
+    if user_question.lower() == 'exit':
+        break
+</code></pre>
+                    </li>
+                </ol>
+
+                <hr>
+
+                <h2 id="bonus-example---enhanced-business-coach">Bonus Example - Enhanced Business Coach</h2>
+                <p>Steps are identical to example 1, the only change is that instead of using:</p>
+                <pre><code class="language-python">system_prompt = "You're an experienced business coach specializing in guiding technology startups."
+</code></pre>
+                <p>A more detailed <code>system_prompt</code> is used.</p>
+                <pre><code class="language-python">system_prompt = """You're an experienced business coach specializing in guiding technology startups from ideation to sustainable growth.
+... (Include detailed aspects such as Product-Market Fit, Venture Capital, Team Management, Monetization, etc.) ...
+"""
+</code></pre>
+                <p>Then the agent is created and executed as in Example 1.</p>
+
+                <hr>
+
+                <h2 id="tools-master-class-on-pydantic-ai">Tools Master Class on Pydantic AI</h2>
+
+                <p>Welcome to the master class on Pydantic AI, a framework for building AI agents. In this master class, we’re learning about the core features of Pydantic AI and how we can build effective agents using simple Python code. We aim to cover all key features of the framework with plenty of examples, so by the end of this, you have the confidence and knowledge to build your own agents.</p>
+
+                <p>Function tools can provide models a way to retrieve extra information to help with the responses. They’re useful when it’s impractical or impossible to put all the context into the system prompt, or when you want to make agents' behavior more deterministic by deferring some of the logic required to generate the response to another, not necessarily AI-powered, tool. Pydantic AI provides three ways to register function tools: we can use <code>@agent.tool_plain</code> decorator, <code>@agent.tool</code> decorator, and we can use the <code>tools</code> keyword when defining the agent in agentic flows. While models do the heavy lifting, tools can provide critical context, any information that an LLM simply may not have. That’s why it’s so important to have tools integrated into our agentic flows. In Pydantic AI, tools do a lot of the heavy lifting, although we still rely on good LLMs. Tools can inject critical information during runtime.</p>
+
+                <p>Okay, we’ll start the coding exercises next, but if you’d like to follow along, feel free to check out the GitHub repo. The link will be in the video description. If you need support or just want to connect with like-minded AI developers, consider joining the Discord server at the URL above. The link will also be in the video description. If you haven’t watched earlier modules, now might be a good time to pause and take a look. It may add context to what’s explained in this tutorial. The links to all videos will be in the description.</p>
+
+                <p>Today we’ll work on six examples, starting with a simple hello world, then moving to basic plain tools agent. Next, we’re going to call tools with context in the third example. We’ll use KW ARGS to pass the tools to the agent. The <code>prepare</code> parameter is unique to Pydantic AI and allows for selectively calling of tools, and that’s what we’re going to do in the fifth example. Finally, we’ll use docstrings to describe tools for testing purposes, and that’s going to use Griff.</p>
+
+                <p>Now we’re ready to kick off with our first example. Let’s start with a simple hello world. We’re going to start by importing the libraries, and now we’re going to define our model. For this, we’re going to use the OpenAI GPT-4 model. Our single tool today is called <code>roll_die</code>, and in the docstring, we’re defining the function: it’s rolling a six-sided die and returning the result. And here we’ll just return a random integer between one and six. And here’s our agent definition, and in the <code>tools</code> parameter of the agent, we’re passing the <code>roll_die</code>. So this is one of the simplest agents possible with a simple tool. And in the <code>run_sync</code>, we’re passing the prompt "My guess is four," and we’re going to ask the model to compare. So let’s roll the dice and see what we come up with. Yes, the first result was five, and our guess four was close but not quite there. Let’s do it one more time and now run it again, and now we’re seeing that we are still not there. Okay, that’s a very simple hello world example.</p>
+
+                <p>Let’s move to something with more substance in our next example. We’re going to use a playing tools agent, so for this, we’re going to utilize the <code>tool</code> keyword. And let’s start by importing our libraries. We’re going to use <code>Agent</code> from Pydantic AI and we’re going to use <code>OpenAIModel</code>. So we’re going to define a simple agent here where we’re passing the model. And the first thing we’re going to do is <code>@agent</code> decorator with the <code>tool_plain</code> keyword. So this is going to be a plain tool, and in this case, it will be an addition function that is going to add two numbers. Okay, and it will print the numbers. Let’s have a second tool which will then determine if a number is a prime number. Remember, these functions are plain Python functions, so anything that works in Python will work inside the tool function. So in this case, we can determine whether a number is a prime number or not. And now we’ve added these two tools to our agent. So let’s ask the simple question: "if the sum of 17 and 74 is a prime number". It called it, and the result of 17 + 74, it executed the first tool, it came up with 91, and then it executed the second tool and determined that 91 is not a prime number. So that is correct.</p>
+
+                <p>Okay, let’s move to the third example. In this case, we’re going to show how to pass context to the tool function. So let’s start by importing our libraries. We’re going to use <code>Agent</code> and <code>OpenAIModel</code> from Pydantic AI. And in this case, we’re going to define a tool that calculates the area of a rectangle, but we also want to pass the units. So in this case, we’re going to pass <code>unit</code> as a parameter to the tool function. And we’re going to use the <code>@agent.tool</code> decorator. And here’s our function definition: <code>calculate_rectangle_area</code>. It takes <code>length</code>, <code>width</code>, and <code>unit</code>. And then in the docstring, we describe what this function does: "Calculates the area of a rectangle." And then we specify the parameters: <code>length</code> in float, <code>width</code> in float, and <code>unit</code> which is a string and describes the unit of measurement. And then we return the area as a float. And here we’re calculating the area and then returning the string with the area and the unit. And here’s our agent definition where we pass the <code>OpenAIModel</code> and the <code>calculate_rectangle_area</code> tool.</p>
+
+                <p>And now let’s run it. And we ask the question: "What is the area of a rectangle that is 10 by 20 cm?". And it’s calling the tool, and it’s passing the parameters: <code>length</code> is 10, <code>width</code> is 20, and <code>unit</code> is "cm". And the response is "The area of the rectangle is 200.0 cm squared." So in this case, we were able to successfully pass the context to the tool function, and the model was able to utilize that context to generate the response.</p>
+
+                <p>Okay, let’s move to the fourth example. In this case, we’re going to use KW ARGS to pass the tools to the agent. So instead of passing the tools directly in the agent definition, we’re going to pass them as keyword arguments in the <code>run_sync</code> method. So let’s start by importing our libraries. We’re going to use <code>Agent</code> and <code>OpenAIModel</code> from Pydantic AI. And we’re going to define a simple tool that gets the current time. So we’re going to use the <code>@agent.tool_plain</code> decorator. And here’s our function definition: <code>get_current_time</code>. And in the docstring, we describe what this function does: "Returns the current time." And inside the function, we’re just returning the current time using <code>datetime.datetime.now()</code>. And here’s our agent definition where we only pass the <code>OpenAIModel</code>. We’re not passing any tools in the agent definition itself. And now let’s run it. And we ask the question: "What time is it?". And in the <code>run_sync</code> method, we’re passing the <code>tools</code> keyword argument, and we’re passing a list with the <code>get_current_time</code> tool. And it’s calling the tool, and it’s getting the current time, and the response is "The current time is 2024-07-24 14:30:00.000000". So in this case, we were able to successfully pass the tools as keyword arguments in the <code>run_sync</code> method.</p>
+
+                <p>Okay, let’s move to the fifth example. In this case, we’re going to use the <code>prepare</code> parameter to selectively call tools. So the <code>prepare</code> parameter allows us to specify which tools should be called for a given run. So let’s start by importing our libraries. We’re going to use <code>Agent</code> and <code>OpenAIModel</code> from Pydantic AI. And we’re going to define two tools. The first tool is <code>roll_die</code>, which we’ve used before, and the second tool is <code>get_current_time</code>. And we’re going to use the <code>@agent.tool_plain</code> decorator for both of them. And here are the function definitions. <code>roll_die</code> returns a random integer between one and six, and <code>get_current_time</code> returns the current time. And here’s our agent definition where we pass the <code>OpenAIModel</code> and both tools in the agent definition itself. And now let’s run it. And we ask the question: "Roll a die". And in the <code>run_sync</code> method, we’re passing the <code>prepare</code> parameter, and we’re setting it to <code>["roll_die"]</code>. This means that only the <code>roll_die</code> tool will be available for this run. And it’s calling the tool, and it’s rolling the die, and the response is "The result of rolling a die is 3". So in this case, we were able to selectively call the <code>roll_die</code> tool using the <code>prepare</code> parameter.</p>
+
+                <p>Okay, let’s move to the sixth and final example. In this case, we’re going to use docstrings to describe tools for testing purposes, and that’s going to use Griff. So Griff is a tool that allows us to generate documentation from docstrings. And Pydantic AI integrates with Griff to allow us to generate documentation for our tools. So let’s start by importing our libraries. We’re going to use <code>Agent</code> and <code>OpenAIModel</code> from Pydantic AI. And we’re going to define a simple tool that adds two numbers. And we’re going to use the <code>@agent.tool</code> decorator. And here’s our function definition: <code>add_numbers</code>. It takes two parameters, <code>num1</code> and <code>num2</code>, both floats. And in the docstring, we describe what this function does: "Adds two numbers and returns the sum." And then we specify the parameters: <code>num1</code> in float, <code>num2</code> in float, and we return the sum as a float. And here we’re calculating the sum and returning it. And here’s our agent definition where we pass the <code>OpenAIModel</code> and the <code>add_numbers</code> tool. And now we can use Griff to generate documentation for our tools.</p>
+
+                <h2 id="observability-for-ai-agents-with-logfire">Observability for AI Agents with Logfire</h2>
+
+                <p>In this section, we'll discuss Logfire, an observability platform designed to work seamlessly with Pydantic AI and other Python applications, created by the same team behind Pydantic AI. Logfire helps you monitor, debug, and improve your AI agents and applications by providing detailed insights into their runtime behavior.</p>
+
+                <h3 id="key-features-of-logfire">Key Features of Logfire:</h3>
+                <ul>
+                    <li><strong>Python-Centric Design:</strong> Logfire is built with Python developers in mind, offering a smooth and intuitive experience for logging and monitoring Python applications, especially those built with Pydantic AI.</li>
+                    <li><strong>OpenTelemetry Compatibility:</strong> Logfire is based on OpenTelemetry, an industry-standard for observability, ensuring compatibility and interoperability with other observability tools and systems.</li>
+                    <li><strong>Structured Logging:</strong> Logfire encourages structured logging, allowing you to log data in a structured format (like JSON) which makes it easier to query, filter, and analyze your logs. This is particularly powerful for debugging complex AI agent interactions.</li>
+                    <li><strong>SQL Querying:</strong> Logfire allows you to query your logs using SQL, providing a flexible and powerful way to filter, aggregate, and extract insights from your log data. This is incredibly useful for identifying patterns, errors, and performance bottlenecks.</li>
+                    <li><strong>Dashboards and Alerts:</strong> Logfire provides customizable dashboards to visualize key metrics and trends in your application's behavior. You can also set up alerts to be notified of critical events or anomalies, allowing you to react proactively to issues and maintain application stability.</li>
+                    <li><strong>Easy Integration with Pydantic AI:</strong> Logfire is designed to integrate seamlessly with Pydantic AI, making it easy to add observability to your AI agents and applications built with this framework.</li>
+                    <li><strong>Spans and Contextual Logging:</strong> Logfire's span feature allows you to organize your logs by context, making it easier to trace the execution flow of your AI agents and understand the relationships between different log events.</li>
+                    <li><strong>Exception Logging:</strong> Logfire simplifies exception logging, making it easy to capture and analyze exceptions that occur in your application, helping you quickly identify and resolve errors.</li>
+                    <li><strong>Method Instrumentation:</strong> Logfire's instrumentation feature allows you to automatically log method calls and responses, providing valuable insights into the performance and behavior of your code without manual logging.</li>
+                </ul>
+
+                <h3 id="why-use-logfire-for-pydantic-ai-agents">Why Use Logfire for Pydantic AI Agents?</h3>
+                <p>As you build more complex AI agents with Pydantic AI, observability becomes crucial. Logfire provides the tools you need to:</p>
+                <ul>
+                    <li><strong>Debug Complex Agent Interactions:</strong> Understand how your agents are interacting with tools, models, and users. Trace the flow of information and identify the root cause of unexpected behavior.</li>
+                    <li><strong>Monitor Performance:</strong> Track the performance of your agents, identify bottlenecks, and optimize for speed and efficiency.</li>
+                    <li><strong>Improve Agent Reliability:</strong> Detect and respond to errors and anomalies proactively, ensuring your agents are stable and reliable.</li>
+                    <li><strong>Gain Insights into Agent Behavior:</strong> Analyze agent logs to understand how they are making decisions, identify patterns in user interactions, and improve your agent's design and prompts.</li>
+                    <li><strong>Reduce Troubleshooting Time:</strong> Structured logging, SQL querying, and dashboards in Logfire significantly reduce the time spent troubleshooting issues, allowing you to quickly pinpoint problems and implement fixes.</li>
+                    <li><strong>Proactive Issue Management:</strong> Set up alerts to be notified of errors or anomalies, allowing you to react to emerging issues before they impact users.</li>
+                </ul>
+
+                <h3 id="getting-started-with-logfire">Getting Started with Logfire</h3>
+                <p>Setting up Logfire is straightforward:</p>
+                <ol>
+                    <li><strong>Create a developer account</strong> at the Logfire website.</li>
+                    <li><strong>Install the Logfire SDK</strong> using <code>pip install logfire</code>.</li>
+                    <li><strong>Authenticate with Logfire</strong> using <code>logfire auth</code>.</li>
+                    <li><strong>Configure your project</strong> using <code>logfire project use &lt;your_project_id&gt;</code>. You might need to create a TOML configuration file (<code>.logfire.toml</code>) in your user directory to specify your project details.</li>
+                    <li><strong>Start sending data</strong> to Logfire by importing the library and using logging functions within your Pydantic AI agents and Python code.</li>
+                </ol>
+
+                <h3 id="example-code-snippets">Example Code Snippets</h3>
+                <ul>
+                    <li><strong>Hello World:</strong>
+                        <pre><code class="language-python">import logfire
+
+logfire.configure() # Configure Logfire (potentially reads from TOML)
+logfire.info("Hello, world!") # Send an info log message
+</code></pre>
+                    </li>
+                    <li><strong>Spans:</strong>
+                        <pre><code class="language-python">with logfire.span("my_tool_span"): # Create a span
+    logfire.info("Inside a span")
+    logfire.set_attribute("result", {"value": 42}) # Set an attribute
+    # ... code within the span ...
+</code></pre>
+                    </li>
+                    <li><strong>Log Levels:</strong>
+                        <pre><code class="language-python">logfire.notice("Notice level message")
+logfire.info("Info level message")
+logfire.debug("Debug level message")
+logfire.warning("Warning level message")
+logfire.error("Error level message")
+logfire.fatal("Fatal level message")
+</code></pre>
+                    </li>
+                    <li><strong>Exception Logging:</strong>
+                        <pre><code class="language-python">try:
+    raise ValueError("Something went wrong")
+except ValueError as e:
+    logfire.exception(e) # Log the exception
+</code></pre>
+                    </li>
+                    <li><strong>Method Instrumentation:</strong>
+                        <pre><code class="language-python">@logfire.instrument("my_instrumented_method") # Instrument a method
+def my_method(arg1, arg2):
+    # ... method code ...
+    return result
+</code></pre>
                     </li>
                 </ul>
-                <p>Pydantic-AI offers multiple methods for incorporating these tools into your agents. In this part, I experimented with both the <code>@agent.tool</code> decorator and the <code>tools</code> keyword, focusing on selecting the approach that best fits each project scenario.</p>
-                <hr>
-                <h2 id="my-hands-on-experiments-with-pydantic-ai-tools">My Hands-On Experiments with Pydantic-AI Tools</h2>
-                <p>I learn best by doing, so I dove into coding a variety of examples. Here’s a rundown of the experiments I conducted in this advanced phase:</p>
-                <h3>1. Hello World: A Simple Dice Roll</h3>
-                <p>I began with a straightforward "Hello World" example by creating a tool that simulated rolling a six-sided die. The agent’s task was to guess the outcome. Although simple, this exercise reinforced my understanding of the fundamental structure.</p>
-                <p>Here's the general idea (I've simplified the code for clarity):</p>
-                <pre><code class="language-python"># Define the tool (rolling a die)
-def roll_die():
-    #Return a random integer between 1 to 6.
-    import random
-    return random.randint(1, 6)
 
-# Create the agent and add the tool
-# (using one of Pydantic-AI's methods)
+                <h3 id="conclusion">Conclusion</h3>
+                <p>Logfire is a valuable observability platform from the Pydantic AI team, designed to simplify monitoring and debugging of Python applications, and especially powerful for Pydantic AI agents. Its Python-centric design, structured logging, SQL querying, and seamless Pydantic AI integration make it an excellent choice for developers building and deploying AI-powered applications. By using Logfire, you can gain deep insights into your agent's behavior, improve its reliability, and reduce troubleshooting time.</p>
 
-# Run the agent with a prompt like "My guess is 4"
-</code></pre>
-                <p>I ran this example several times, and it was fascinating to see the agent comparing its guess with the actual die roll.</p>
-                <h3>2. Plain Tools: Adding and Checking for Primes</h3>
-                <p>Next, I advanced to a slightly more intricate example by developing two "plain" tools: one that adds two numbers and another that checks if a number is prime.</p>
-                <pre><code class="language-python"># Tool 1: Add two numbers
-def add_numbers(x, y):
-    print(f"Adding {x} and {y}")
-    return x + y
-
-# Tool 2: Check if a number is prime
-def is_prime(n):
-    # (Implementation for checking primality)
-    if n &lt;= 1:
-        return False
-    for i in range(2, int(n**0.5) + 1):
-        if n % i == 0:
-            return False
-    return True
-
-# Create the agent and add both tools
-#Prompt the user.
-</code></pre>
-                <p>I then posed the question, "Is the sum of 17 and 74 a prime number?" The agent adeptly used both tools to compute the sum (91) and determine that it wasn’t prime.</p>
-                <h3>3. Tools with Context: Comparing Cities</h3>
-                <p>In this experiment, I explored context-aware tools. Pydantic-AI allows for the transfer of "context" across various parts of your agent, including its tools. I developed a tool designed to compare two cities.</p>
-                <pre><code class="language-python">#Agent definition
-#at.agent.tool decorator
-#Tool definition get_comparison_city(context)
-    #Comparison is read from context.
-#Prompt the user
-</code></pre>
-                <p>I asked the agent, "What is the capital of the US and compare that to Paris?" The agent effectively used the contextual information (Paris) to retrieve the necessary details and perform the comparison, with the tool managing a significant portion of the process.</p>
-                <h3>4. Passing Tools as Keywords: Code Review</h3>
-                <p>I also investigated the use of the <code>tools</code> keyword to pass tools to the agent. This method allowed me to clearly specify whether a tool required context. For this experiment, I built a code review agent that utilized two tools: one to retrieve source code and another to fetch industry standards for code quality.</p>
-                <pre><code class="language-python">#Define two agent, one to write, one to review.
-#First tool, get source code, context is true.
-#Second tool, get industry standards, context is false.
-#Prompt the user to get code, and perform a code review.
-</code></pre>
-                <p>I prompted with, "Create a method in Python that calculates a 30-year mortgage rate and returns an amortization table." While the generated code was impressive, my focus was on observing the code review agent effectively employing both tools.</p>
-                <h3>5. The "Prepare" Parameter: Selective Tool Use</h3>
-                <p>One of the standout features in this part was the <code>prepare</code> parameter. This parameter grants you precise control over when a tool is activated. By defining a function, you can determine whether a tool should be invoked under specific conditions.</p>
-                <pre><code class="language-python">#Define agents, one to code, one to review, and one to notify.
-#The notify agent is only used if the review is below a given standard.
-#Prompt the user to get code, perform a code review, and notify the team if below standard.
-</code></pre>
-                <p>For instance, if the cyclomatic complexity exceeds the industry standard, the agent can automatically send a notification.</p>
-                <h3>6. Docstrings and Testing: Using Griff</h3>
-                <p>Lastly, I delved into using docstrings to define tools—a method that proves especially useful for testing. With the support of a library called Griff, Pydantic-AI can parse these docstrings to understand a tool's parameters and functionality.</p>
-                <pre><code class="language-python">#Define a functional model.
-#Define a plane agent.
-#Define the print schema method.
-#Prompt the user for definition of our tool.
-</code></pre>
-                <p>This approach then lists all the tool’s parameters, simplifying the testing process.</p>
-                <h2 id="my-key-takeaways-and-whats-next">My Key Takeaways and What's Next</h2>
-                <p>This advanced exploration into Pydantic-AI has been incredibly rewarding. I discovered that:</p>
-                <ul>
-                    <li>Tools are essential for building powerful and reliable AI agents.
-                        <br>
-                        They effectively bridge the gap between an AI model’s inherent knowledge and the real-world data it requires.
-                    </li>
-                    <li>Pydantic-AI provides flexible ways to integrate tools.
-                        <br>
-                        You can choose the method that best suits your project’s specific needs.
-                    </li>
-                    <li>The <code>prepare</code> parameter offers fine-grained control over tool usage.
-                        <br>
-                        This is crucial for ensuring that your agents behave in a predictable and efficient manner.
-                    </li>
-                    <li>Docstrings and testing go hand-in-hand.
-                        <br>
-                        Using docstrings to define tools makes it significantly easier to test and maintain your agents.
-                    </li>
-                    <li>There is virtually no limit to the types of tools that can be incorporated.</li>
-                </ul>
-                <h2 id="conclusion-empowering-yourself-to-build-ai-agents">Conclusion: Empowering Yourself to Build AI Agents</h2>
-                <p>My journey with Pydantic-AI continues to evolve, and I'm more excited than ever about the possibilities it offers. This framework remains a powerful tool for democratizing the development of AI agents—even if you're not a seasoned expert. I hope these advanced experiments and insights inspire you to further explore this fascinating area and push the boundaries of what you can build.</p>
-                <p>Step By Step---</p>
-                <hr>
-                <h2 id="core-concepts">Core Concepts</h2>
-                <ul>
-                    <li><strong>Function Tools:</strong> Allow agents to retrieve extra information, perform specific tasks, and inject critical context during runtime.</li>
-                    <li><strong>Agentic Flows:</strong> The sequence of actions and interactions between agents and tools.</li>
-                    <li><strong>Context:</strong> Data passed between agents, tools, validator functions, and system prompts.</li>
-                    <li><strong>Prepare Parameter:</strong> A unique Pantic AI feature that allows selective calling of tools based on defined conditions.</li>
-                </ul>
-                <hr>
-                <h2 id="methods-for-registering-function-tools">Methods for Registering Function Tools</h2>
-                <p>Pantic AI offers three primary methods for integrating function tools into your agents:</p>
-                <ol>
-                    <li><strong><code>@agent.tool</code> or Plain Decorator:</strong> Use this decorator directly above a function definition to register it as a tool.</li>
-                    <li><strong><code>agent.tool</code> Decorator:</strong> Similar to the first method, but provides more explicit control.</li>
-                    <li><strong><code>tools</code> Keyword:</strong> Define tools within the agent's definition using the <code>tools</code> keyword argument.</li>
-                </ol>
-                <hr>
-                <h2 id="six-examples-of-tool-usage">Six Examples of Tool Usage</h2>
-                <p>This section provides six practical examples, progressively increasing in complexity, to demonstrate various tool implementation techniques.</p>
-                <h3>Example 1: Hello World (Basic Tool Integration)</h3>
-                <ol>
-                    <li><strong>Import Libraries:</strong>
-                        <pre><code class="language-python"># Import necessary libraries (e.g., pantic_ai, openai)
-</code></pre>
-                    </li>
-                    <li><strong>Define the Model:</strong>
-                        <pre><code class="language-python"># Define your language model (e.g., OpenAI GPT-4)
-</code></pre>
-                    </li>
-                    <li><strong>Define the Tool:</strong>
-                        <pre><code class="language-python"># Create a function representing your tool (e.g., roll_die)
-# Include a docstring describing the tool's function.
-def roll_die():
-    """Rolls a six-sided die and returns the result."""
-    # Implement the tool's logic (e.g., return a random integer between 1 and 6)
-</code></pre>
-                    </li>
-                    <li><strong>Define the Agent:</strong>
-                        <pre><code class="language-python"># Create your agent, passing the tool in the 'tools' parameter.
-</code></pre>
-                    </li>
-                    <li><strong>Run the Agent:</strong>
-                        <pre><code class="language-python"># Execute the agent with a prompt using run_sync.
-</code></pre>
-                    </li>
-                </ol>
-                <hr>
-                <h3>Example 2: Plain Tools Agent (Multiple Tools)</h3>
-                <ol>
-                    <li><strong>Import Libraries:</strong>
-                        <pre><code class="language-python">from pantic_ai import Agent
-# Import your model
-</code></pre>
-                    </li>
-                    <li><strong>Define the Agent:</strong>
-                        <pre><code class="language-python"># Define a simple agent.
-</code></pre>
-                    </li>
-                    <li><strong>Define Tools with <code>@agent</code> Decorator:</strong>
-                        <pre><code class="language-python"># Use the @agent decorator with the 'plain' keyword for each tool.
-@agent.tool(plain=True)
-def addition(num1, num2):
-    """Adds two numbers."""
-    # Implement addition logic.
-@agent.tool(plain=True)
-def is_prime(num):
-   """Determines if a number is prime."""
-   # Implement prime number check.
-</code></pre>
-                    </li>
-                    <li><strong>Run the Agent:</strong>
-                        <pre><code class="language-python">#  Ask a question that utilizes both tools.
-</code></pre>
-                    </li>
-                </ol>
-                <hr>
-                <h3>Example 3: Tools with Context</h3>
-                <ol>
-                    <li><strong>Import Libraries:</strong>
-                        <pre><code class="language-python">#import libraries.
-</code></pre>
-                    </li>
-                    <li><strong>Define the Output Model:</strong>
-                        <pre><code class="language-python"># Create a Pydantic model for the output (e.g., CapitalCity).
-# Include fields like name, year_founded, history, comparison_string.
-</code></pre>
-                    </li>
-                    <li><strong>Define the Agent:</strong>
-                        <pre><code class="language-python">#  Define the agent with result_type and a system prompt.
-</code></pre>
-                    </li>
-                    <li><strong>Define the Tool with Context:</strong>
-                        <pre><code class="language-python">@agent.tool
-def get_comparison_city(context):
-    """Reads the comparison city from the context."""
-    # Access and return data from the context.
-</code></pre>
-                    </li>
-                    <li><strong>Run the Agent:</strong>
-                        <pre><code class="language-python"># Pass the question and context data when running the agent.
-</code></pre>
-                    </li>
-                </ol>
-                <hr>
-                <h3>Example 4: Passing Tools with the <code>tools</code> Keyword</h3>
-                <ol>
-                    <li><strong>Import <code>Tool</code> Class:</strong>
-                        <pre><code class="language-python">from pantic_ai import Tool
-#Import model
-</code></pre>
-                    </li>
-                    <li><strong>Define Output Model</strong>:
-                        <pre><code class="language-python"># Define output model.
-</code></pre>
-                    </li>
-                    <li><strong>Define your tools outside of agent</strong>:
-                        <pre><code class="language-python">def get_source_code(context):
-   # Get the source code.
-def get_industry_standards():
-   # Get the industry standards.
-</code></pre>
-                    </li>
-                    <li><strong>Define the Agent and pass in an array of tools</strong>:
-                        <pre><code class="language-python"># Create agents. In tools, make an array of Tools, defining whether or not they take context.
-</code></pre>
-                    </li>
-                    <li><strong>Run the Agents:</strong>
-                        <pre><code class="language-python">#  Define the user prompt and run the agents.
-</code></pre>
-                    </li>
-                </ol>
-                <hr>
-                <h3>Example 5: Using the <code>prepare</code> Parameter</h3>
-                <ol>
-                    <li><strong>Define Supporting Functions:</strong>
-                        <pre><code class="language-python"># Create a function to check if a condition is met (e.g., if_below_industry_standard).
-# This function will be used by the 'prepare' parameter.
-</code></pre>
-                    </li>
-                    <li>Define tool functions outside of agent:
-                        <pre><code class="language-python">def get_industry_standards():
-   # returns industry standards.
-def if_below_industry_standards(context):
-   # Returns if a notification should be sent.
-</code></pre>
-                    </li>
-                    <li><strong>Define the Tool with <code>prepare</code>:</strong>
-                        <pre><code class="language-python">@agent.tool(prepare=if_below_industry_standards) #pass the conditional function
-def send_notification(context):
-    """Sends a notification if the condition is met."""
-    # Implement notification logic.
-</code></pre>
-                    </li>
-                    <li>Define the Agent and pass in tool:
-                        <pre><code class="language-python"># Set notification_agent using agent.tool and the prepare keyword.
-</code></pre>
-                    </li>
-                    <li><strong>Run the Agents:</strong>
-                        <pre><code class="language-python"># Run multiple agents in a flow, where the tool execution depends on 'prepare'.
-</code></pre>
-                    </li>
-                </ol>
-                <hr>
-                <h3>Example 6: Tools for Testing (Griff Library)</h3>
-                <ol>
-                    <li><strong>Import <code>FunctionModel</code>:</strong>
-                        <pre><code class="language-python">from pantic_ai.models import FunctionModel
-</code></pre>
-                    </li>
-                    <li><strong>Define the Agent (using <code>FunctionModel</code>):</strong>
-                        <pre><code class="language-python"># Instead of an LLM, use FunctionModel for testing.
-# Define the agent with a docstring describing its functionality and parameters.
-</code></pre>
-                    </li>
-                    <li><strong>Define tool as function</strong>:
-                        <pre><code class="language-python">def code_quality(raw_code: str, cyclomatic_complexity: float, percent_duplication: float, notification_list:list[str]):
-   #return parameters.
-</code></pre>
-                    </li>
-                    <li><strong>Create a <code>print_schema</code> Method:</strong>
-                        <pre><code class="language-python"># Define a method to print the schema of the tool.  This uses the Griff library implicitly.
-def print_schema(messages):
-   #returns the model response
-</code></pre>
-                    </li>
-                    <li><strong>Test the Tool:</strong>
-                        <pre><code class="language-python"># Call print_schema to inspect the tool's definition (parameters, types, etc.).
-</code></pre>
-                    </li>
-                </ol>
-                <hr>
-                <h2 id="summary">Summary</h2>
-                <ul>
-                    <li>Function tools significantly enhance the capabilities of AI agents.</li>
-                    <li>Pantic AI offers flexible mechanisms for defining and integrating tools.</li>
-                    <li>The <code>prepare</code> parameter provides fine-grained control over tool execution.</li>
-                    <li>Function models and docstring interpretation (using Griff) facilitate test-driven development.</li>
-                </ul>
+                <h3 id="next-steps">Next Steps</h3>
+                <p>The original post mentions exploring "parsing text and getting structured outputs from Pydantic AI" as a next step. This likely refers to using Pydantic AI's features for structured data extraction and response generation, which would be a natural progression after understanding agent tooling and observability.</p>
             </div>
         </article>
     </div>
 
+    
     <style>body{font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:1.8;font-weight:300;color:#111;background-color:#fdfdfd}.wrapper{max-width:800px;margin-right:auto;margin-left:auto;padding-right:30px;padding-left:30px}.post-header{margin-bottom:30px}.post-title{font-size:42px;line-height:1.2;margin-bottom:15px}.post-meta{font-size:14px;color:#828282;margin-bottom:15px}.post-content{margin-bottom:30px}.post-content h2{font-size:32px;margin-top:30px;margin-bottom:15px;font-weight:300}.post-content h3{font-size:26px;margin-top:25px;margin-bottom:15px;font-weight:300}.post-content h4{font-size:20px;margin-top:20px;margin-bottom:15px;font-weight:300}.post-content ol,.post-content p,.post-content ul{margin-bottom:15px}.post-content ol,.post-content ul{margin-left:30px}.post-content blockquote{color:#828282;border-left:4px solid #9c9c9c;padding-left:15px;font-size:18px;font-style:italic;margin-bottom:15px}.post-content pre{font-size:15px;border:1px solid #9c9c9c;border-radius:3px;background-color:#eef;padding:8px 12px;overflow-x:auto;margin-bottom:15px}.post-content code{font-size:15px;border:1px solid #9c9c9c;border-radius:3px;background-color:#eef;padding:1px 5px}.post-content hr{border:none;border-bottom:1px solid #9c9c9c;margin:30px 0}.post-content a{color:#2a7ae2;text-decoration:none}.post-content a:hover{color:#111;text-decoration:underline}</style>
-    <!-- Instruction = <!-- Rest of the sections remain unchanged --><p> 
-</p></div></section><section class="mb-3"><h4 class="section-title explore-more"><span>Explore More</span></h4><div class=""><div class="card mb-3 d-flex flex-row has-img"><div class="col-2 p-0 explore-featured-image"><a class="card-img-left card-has-img" href="https://ccwithai.github.io/AI/blog/create-a-full-stack-saas-app/"><img src="https://ccwithai.github.io/AI/assets/images/546d937f82.png" loading="lazy"></a></div><div class="card-body col"><a class="card-title" href="https://ccwithai.github.io/AI/blog/create-a-full-stack-saas-app/">Create a FULL STACK SaaS App With Lovable</a><p class="card-text">Sign Up for a FREE Lovable account here. In today’...</p></div></div></div></section></div></div></div></div></main><footer class="page-footer"><div class="container"><div class="row"><div class="col col-12 col-md-6"><span>© <!-- -->AI</span></div><div class="col col-12 col-md-6 mt-3 mt-md-0 d-flex justify-content-md-end"><a href="https://prss.io" class="d-flex align-items-center footer-shoutout" target="_blank" rel="noopener" title="Powered by PRSS Site Creator"><img class="prss-footer-image mr-1" src="data:image/png;base64,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" width="15"><span class="font-weight-bold prss-tag">PRSS Site Creator</span></a></div></div></div></footer></div></div>
+
+</div></section><section class="mb-3"><h4 class="section-title explore-more"><span>Explore More</span></h4><div class=""><div class="card mb-3 d-flex flex-row has-img"><div class="col-2 p-0 explore-featured-image"><a class="card-img-left card-has-img" href="https://ccwithai.github.io/AI/blog/lovable-and-bolt-new/"><img src="https://ccwithai.github.io/AI/assets/images/a5741e405d.png" loading="lazy"></a></div><div class="card-body col"><a class="card-title" href="https://ccwithai.github.io/AI/blog/lovable-and-bolt-new/">I Built a SaaS starter website for Free with Lovable</a><p class="card-text">I Built a SaaS starter website for Free with Lovab...</p></div></div></div></section></div></div></div></div></main><footer class="page-footer"><div class="container"><div class="row"><div class="col col-12 col-md-6"><span>© <!-- -->AI</span></div><div class="col col-12 col-md-6 mt-3 mt-md-0 d-flex justify-content-md-end"><a href="https://prss.io" class="d-flex align-items-center footer-shoutout" target="_blank" rel="noopener" title="Powered by PRSS Site Creator"><img class="prss-footer-image mr-1" src="data:image/png;base64,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" width="15"><span class="font-weight-bold prss-tag">PRSS Site Creator</span></a></div></div></div></footer></div></div>
 
 </body></html>
