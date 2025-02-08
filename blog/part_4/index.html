@@ -1,0 +1,312 @@
+<!DOCTYPE html><html lang="en"><head><meta name="description" content="Blog home page / landing page contains the latest Ai news articles uploaded everyday about the latest breaking news."><meta name="twitter:description" content="Blog home page / landing page contains the latest Ai news articles uploaded everyday about the latest breaking news."><meta name="robots" content="index, follow"><meta property="og:locale" content="en_UK"><meta property="og:title" content="CCwithAI's Blog Site - AI news with articles on how to use AI in your business and personal life."><link rel="canonical" href="https://ccwithai.github.io/AI/"><meta property="og:url" content="https://ccwithai.github.io/AI/"><meta property="og:site_name" content="CCwithAi - Blog - Latest AI News - AI Guides"><meta name="twitter:image:src" content="https://ccwithai.github.io/AI/assets/images/0d9e46a2de.png"><meta property="og:image" content="https://ccwithai.github.io/AI/assets/images/0d9e46a2de.png"><meta name="twitter:card" content="summary_large_image"><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@hodgef/slate-theme@3.0.9/build/post.css" rel="stylesheet"><title>Creating AI Agents with Custom System Prompts in Pydantic AI - Part 4 - AI</title></head><body><script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script><div id="root" class="is-ssr"><div class="page page-post"><header class="page-header"><div class="header-nav"><div class="container"><nav class="row navbar navbar-expand-lg navbar-dark"><a class="navbar-brand logo" href="https://ccwithai.github.io/AI/">AI</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent"><ul class="page-menu navbar-nav"><li class="nav-item"><a class="nav-link" href="https://ccwithai.github.io/AI/">Home</a><div class="dropdown-menu"></div></li><li class="nav-item active"><a class="nav-link" href="https://ccwithai.github.io/AI/blog/">Blog</a><div class="dropdown-menu"></div></li></ul></div></nav></div></div></header><main><div class="container main-container"><div class="row"><div class="col"><div class="content"><div class="post-title-container mb-2"><div class="row justify-content-between"><div class="col-12 col-lg d-lg-flex flex-column justify-content-center"><h1 class="mb-0">Creating AI Agents with Custom System Prompts in Pydantic AI - Part 4</h1><div class="text-muted mt-3 date post-date d-flex align-items-center" title="08 Feb, 2025"><i class="fa fa-clock-o mr-2"></i><span>Published on <!-- -->08 Feb, 2025</span></div></div></div></div><div class="featured-image" style="background-image:url(https://ccwithai.github.io/AI/assets/images/0d9e46a2de.png)"></div><section class="post-content mb-3 pb-5"><div class="post-inner-content">
+
+
+    <div class="wrapper">
+        <article class="post">
+            <header class="post-header">
+                <h1 class="post-title">Creating AI Agents with Custom System Prompts in Pydantic AI</h1>
+                <p class="post-meta"></p>
+            </header>
+
+            <div class="post-content">
+                <p>Have you ever felt like your AI agent interactions were falling a bit flat? Like you weren't quite getting the focused, tailored responses you needed? I certainly have. It's a common frustration when working with large language models (LLMs). You know the potential is there, but sometimes it feels like you're speaking a slightly different language. This is where the magic of system prompts comes in.</p>
+
+                <p>This post will dive deep into system prompts within the Pydantic-AI framework. We'll explore how crafting the <em>right</em> system prompt can completely transform your agent's behaviour, personality, and, ultimately, its effectiveness. By the end, you'll have a solid understanding of both static and dynamic system prompts, and be confident in creating your own to build truly powerful and useful AI agents. My core belief, and the thesis of this article is that effective use of system prompts is <em>the</em> key to unlocking the true power of any agent framework, especially Pydantic-AI.</p>
+
+                <h2 id="why-system-prompts-matter-shaping-your-ai-s-persona">Why System Prompts Matter: Shaping Your AI's Persona</h2>
+                <p>Think of a system prompt as the foundational instructions you give your AI agent. It's not just about the specific question you ask (the user prompt); it's about setting the stage, defining the role, and providing the context for <em>how</em> your agent should respond. It's like giving an actor a character description and backstory before they step onto the stage.</p>
+
+                <p>While user prompts are essential, they often operate in a vacuum. A system prompt provides the crucial framework. It frames the agent's:</p>
+                <ul>
+                    <li><strong>Personality:</strong> Is your agent a seasoned business coach, a meticulous code reviewer, or a helpful historian?</li>
+                    <li><strong>Behaviour:</strong> Should your agent be concise and direct, or elaborate and explanatory?</li>
+                    <li><strong>Scope:</strong> What areas of knowledge is your agent an expert in? What is it <em>not</em> designed to handle?</li>
+                </ul>
+
+                <p>I've learned through countless experiments (and a few frustrating failures!) that crafting a well-defined system prompt is often the difference between a generic, somewhat helpful response and a truly insightful, tailored one.</p>
+
+                <h3>Static vs. Dynamic System Prompts: Two Sides of the Same Coin</h3>
+                <p>In Pydantic-AI, we have two main types of system prompts to work with:</p>
+                <ul>
+                    <li><strong>Static System Prompts:</strong> These are the workhorses. You define them upfront, usually when you're creating your agent. They're perfect for setting the overall tone and defining core capabilities.</li>
+                    <li><strong>Dynamic System Prompts:</strong> These are where things get really interesting. They allow you to inject information that might only be available at runtime. This could be anything from today's date to a variable extracted from a user's input.</li>
+                </ul>
+                <p>An agent can, and often should, have both static and dynamic prompts. They work together to create a comprehensive and adaptable context. I'll be going through several examples that utilize each.</p>
+
+                <hr>
+
+                <h2 id="hands-on-examples-building-better-agents-step-by-step">Hands-On Examples: Building Better Agents, Step-by-Step</h2>
+
+                <p>I learn best by doing, so let's jump into some practical examples. I've put together a series of scenarios, each building on the previous one, to illustrate the power and flexibility of system prompts. You could follow along yourself – all the code examples can be adapted from the original video's GitHub repository (though I won't link to it directly here, as per the instructions).</p>
+
+                <h3>Example 1: The "Hello World" Business Coach</h3>
+                <p>Our first example is a simple "Hello World" scenario. We'll create a business coach agent designed to help technology startups. The system prompt is straightforward:</p>
+                <blockquote>
+                    <p>You're an experienced business coach and startup mentor specializing in guiding technology startups from ideation to sustainable growth.</p>
+                </blockquote>
+                <p>Even this basic prompt makes a difference. When asked about creating a startup strategy for a Software-as-a-Service (SaaS) business, the agent provides a reasonably comprehensive list of considerations: market research, validation, gamification, user acquisition, and retention.</p>
+                <p>However, it's still fairly generic. It's better than nothing, but it's not groundbreaking. This highlights the importance of iterative refinement – starting simple and building up complexity.</p>
+
+                <h3>Example 2: The Basic Code-Writing Agent</h3>
+                <p>Next, we'll build an agent that can write code. We'll ask it to create a functional React component that displays a user profile, using Zustand for state management and Tailwind CSS for styling. The system prompt is again relatively simple:</p>
+                <blockquote>
+                    <p>You are a coding assistant that creates code based on user requests.</p>
+                </blockquote>
+                <p>The agent produces a decent result, including instructions for installing dependencies, defining the Zustand store, and creating the React component. It even integrates the component into a larger application structure.</p>
+
+                <h3>Example 3: Leveling Up the Code-Writing Agent</h3>
+                <p>Here's where we start to see the real power of a well-crafted system prompt. We'll significantly expand the prompt for our code-writing agent, adding details about documentation, styling, testing, optimization, and even the requirement to generate a <code>readme.md</code> file. This, from my own professional experience is vital for any shared code.</p>
+                <p>I actually used another LLM (like ChatGPT or Claude) to help me generate this more detailed prompt. This is a great technique – leverage the power of LLMs to help you build better LLMs!</p>
+                <p>The result is dramatically improved. The code is now in TypeScript (TSX), includes code comments, defines types and interfaces within the Zustand store, and, crucially, generates a comprehensive <code>readme.md</code> file with instructions, explanations, and even license information.</p>
+                <p>This demonstrates a key principle: <em>a more detailed and descriptive system prompt leads to a more detailed and useful output.</em></p>
+
+                <h3>Example 4: The Invoice-Writing Agent (with a Dynamic Twist)</h3>
+                <p>Now, let's create an agent that can write invoices. This example introduces a subtle but powerful concept: injecting variables into a static system prompt.</p>
+                <p>We'll use a template string within the system prompt to include today's date. This ensures that the invoice always reflects the current date, regardless of when the agent is run. The system prompt looks something like this:</p>
+                <blockquote>
+                    <p>You are an invoice generation assistant. Generate an invoice with the following details... Use today's date: {today_date} ...</p>
+                </blockquote>
+                <p>We then use Python's <code>date.today()</code> function to populate the <code>{today_date}</code> placeholder. This is still technically a <em>static</em> prompt (because it's defined before runtime), but it incorporates dynamic information.</p>
+                <p>The resulting invoice includes the dynamically generated date, a due date (30 days later), and a breakdown of services based on the user's input. This technique can be adapted to create all sorts of templates: emails, social media posts, presentations – anything that benefits from dynamic content.</p>
+
+                <h3>Example 5: Introducing Dynamic System Prompts</h3>
+                <p>Now, let's dive into true dynamic system prompts. These are defined using functions decorated with <code>@agent.system_prompt</code>. This allows us to inject information that's only known at runtime.</p>
+                <p>We'll create an agent that provides information about capital cities. The system prompt sets the agent's role as an experienced historian. We'll then define a dynamic system prompt called <code>@comparison_city</code> that takes a city name as a dependency and returns a string like "The city to compare is [city name]".</p>
+                <p>When we run the agent, we ask about the capital of the US and provide "Paris" as a dependency. The agent correctly identifies Washington DC, provides its history, and compares it to Paris. This opens up a wide, and frankly, exciting, world of possibilities.</p>
+
+                <h3>Example 6: Agents Writing Their Own System Prompts!</h3>
+                <p>This is where things get really meta. We'll create <em>two</em> agents:</p>
+                <ol>
+                    <li><strong>Prompt Agent:</strong> This agent is an expert prompt writer. Its job is to generate a system prompt for the second agent based on the user's initial question.</li>
+                    <li><strong>Assistant Agent:</strong> This agent uses the dynamically generated system prompt from the Prompt Agent to answer the user's question.</li>
+                </ol>
+                <p>This is a powerful concept. Instead of manually crafting system prompts for every possible scenario, we can let an LLM do the heavy lifting!</p>
+                <p>We'll run this in a loop to simulate a conversation. The first time through the loop, the Prompt Agent generates a system prompt based on the user's question (e.g., "I want to learn how to cook"). Subsequent interactions use this generated prompt, along with message history, to maintain context.</p>
+                <p>The results are impressive. When asked about cooking, the Prompt Agent generates a system prompt that instructs the Assistant Agent to ask about specific cuisines, assess the user's skill level, and suggest learning resources. When asked about learning Python, the Prompt Agent generates a completely different, tailored system prompt.</p>
+
+                <h3>Bonus Example: Refining the Business Coach</h3>
+                <p>Finally, let's revisit our "Hello World" business coach. We'll take the lessons learned and significantly expand the system prompt, adding details about product-market fit, raising venture capital, building high-performing teams, developing SaaS platforms, monetization strategies, launch and growth, and tech industry knowledge.</p>
+                <p>The difference is night and day. The enhanced agent provides a much more detailed and relevant strategy, covering all the key areas outlined in the expanded system prompt. This drives home the core message of the power of great prompts.</p>
+                <p>Step By Step.</p>
+
+                <hr>
+
+                <h2 id="key-concepts">Key Concepts</h2>
+                <ul>
+                    <li><strong>System Prompts:</strong> Instructions that frame the agent's personality, behavior, and scope. They are crucial for getting desired results.</li>
+                    <li><strong>Static System Prompts:</strong> Defined beforehand using the <code>system_prompt</code> parameter in the agent's constructor.</li>
+                    <li><strong>Dynamic System Prompts:</strong> Depend on runtime context and are defined using functions decorated with <code>@agent.system_prompt</code>.</li>
+                </ul>
+
+                <hr>
+
+                <h2 id="steps-common-to-the-examples">Steps Common to the examples</h2>
+                <ol>
+                    <li><strong>Import libraries.</strong>
+                        <pre><code class="language-python">from pydantic_ai import agent, RunContext
+from pydantic_ai.model import OpenAIModel
+</code></pre>
+                    </li>
+                    <li><strong>Define the Model.</strong>
+                        The examples shown use GPT-4-all-mini. You can change models for different results.
+                        <pre><code class="language-python">model = OpenAIModel(model="GPT4AllMini")
+</code></pre>
+                    </li>
+                </ol>
+
+                <hr>
+
+                <h2 id="example-1-hello-world---basic-static-system-prompt">Example 1: Hello World - Basic Static System Prompt</h2>
+                <ol>
+                    <li><strong>Define the Agent and System Prompt:</strong> Create an agent and assign a simple system prompt.
+                        <pre><code class="language-python">system_prompt = "You're an experienced business coach specializing in guiding technology startups."
+business_coach = agent(model, system_prompt=system_prompt)
+</code></pre>
+                    </li>
+                    <li><strong>Run the Agent:</strong> Execute the agent with a basic user prompt.
+                        <pre><code class="language-python">result = business_coach.run_sync(prompt="Create a startup strategy for a SaaS business.")
+print(result)
+</code></pre>
+                    </li>
+                </ol>
+
+                <hr>
+
+                <h2 id="example-2-code-writing-agent---basic-static-system-prompt">Example 2: Code Writing Agent - Basic Static System Prompt</h2>
+                <ol>
+                    <li><strong>Define Agent and System Prompt:</strong>
+                        <pre><code class="language-python">system_prompt = "You are a coding assistant that generates code based on user requests."
+coding_agent = agent(model, system_prompt=system_prompt)
+</code></pre>
+                    </li>
+                    <li><strong>Run with User Prompt:</strong> Ask the agent to create a React component.
+                        <pre><code class="language-python">result = coding_agent.run_sync(prompt="Create a functional React component that displays user profile (name, email, picture) using Zustand and Tailwind CSS.")
+print(result)
+</code></pre>
+                    </li>
+                </ol>
+
+                <hr>
+
+                <h2 id="example-3-enhanced-code-writing-agent---detailed-static-system-prompt">Example 3: Enhanced Code Writing Agent - Detailed Static System Prompt</h2>
+                <ol>
+                    <li><strong>Craft a Detailed System Prompt:</strong> Use external tools (like ChatGPT or GPT-4All) to generate a comprehensive system prompt. Include requirements for documentation, styling, testing, and a <code>readme.md</code> file.
+                        <pre><code class="language-python">system_prompt = """You are a coding assistant. Generate well-documented code.
+... (Include detailed instructions for the component, styling, testing, and readme.md generation) ...
+"""
+coding_agent = agent(model, system_prompt=system_prompt)
+</code></pre>
+                    </li>
+                    <li><strong>Run with the Same User Prompt:</strong> As in Example 2. The difference will be in the output due to the enhanced system prompt.
+                        <pre><code class="language-python">result = coding_agent.run_sync(prompt="Create a functional React component that displays user profile (name, email, picture) using Zustand and Tailwind CSS.")
+print(result)
+</code></pre>
+                    </li>
+                </ol>
+
+                <hr>
+
+                <h2 id="example-4-invoice-writing-agent---static-system-prompt-with-variable-injection">Example 4: Invoice Writing Agent - Static System Prompt with Variable Injection</h2>
+                <ol>
+                    <li><strong>Import Date Libraries:</strong>
+                        <pre><code class="language-python">from datetime import date
+</code></pre>
+                    </li>
+                    <li><strong>Create a System Prompt Template:</strong> Use a docstring with curly braces <code>{}</code> as placeholders for variables.
+                        <pre><code class="language-python">system_prompt = """You are an invoice writing assistant.
+... (Invoice details) ...
+Use today's date: {today_date}
+...
+"""
+</code></pre>
+                    </li>
+                    <li><strong>Format the System Prompt:</strong> Inject the variable using <code>.format()</code>.
+                        <pre><code class="language-python">formatted_prompt = system_prompt.format(today_date=date.today())
+invoice_agent = agent(model, system_prompt=formatted_prompt)
+</code></pre>
+                    </li>
+                    <li><strong>Run with User Prompt:</strong> Provide details for the invoice.
+                        <pre><code class="language-python">result = invoice_agent.run_sync(prompt="Create an invoice for Customer X. Services: Web Dev, AI Consulting, Strategy. Total: $50,000.")
+print(result)
+</code></pre>
+                    </li>
+                </ol>
+
+                <hr>
+
+                <h2 id="example-5-basic-dynamic-system-prompt">Example 5: Basic Dynamic System Prompt</h2>
+                <ol>
+                    <li><strong>Create Output Model (Pydantic Model):</strong>
+                        <pre><code class="language-python">from pydantic import BaseModel
+
+class Capital(BaseModel):
+    name: str
+    year_founded: int
+    history: str
+    comparison: str
+</code></pre>
+                    </li>
+                    <li><strong>Define the Agent and Dynamic System Prompt:</strong> Use <code>@agent.system_prompt</code> to decorate a function that returns part of the prompt.
+                        <pre><code class="language-python">system_prompt = "You're an experienced historian. Provide capital city information and compare it to another city."
+historian_agent = agent(model, system_prompt=system_prompt, output_model=Capital)
+
+@historian_agent.system_prompt
+def comparison_city(context: RunContext):
+    return f"The city to compare is {context.dependencies['comparison_city']}."
+</code></pre>
+                    </li>
+                    <li><strong>Run with User Prompt and Dependencies</strong>
+                        <pre><code class="language-python">result = historian_agent.run_sync(
+    prompt="What is the capital of the US?",
+    dependencies={"comparison_city": "Paris"}
+)
+print(result)
+</code></pre>
+                    </li>
+                </ol>
+
+                <hr>
+
+                <h2 id="example-6-agent-writing-its-own-dynamic-system-prompt">Example 6: Agent Writing its Own Dynamic System Prompt</h2>
+                <ol>
+                    <li><strong>Create Output Model (Pydantic Model):</strong>
+                        <pre><code class="language-python">from pydantic import BaseModel
+
+class SystemPrompt(BaseModel):
+  prompt: str
+  tags: List[str]
+</code></pre>
+                    </li>
+                    <li><strong>Create the Prompt-Writing Agent:</strong>
+                        <pre><code class="language-python">prompt_writer_system_prompt = """You are an expert prompt writer. Create a system prompt for an AI agent
+based on the user's question.  Do *not* answer the user's question, only generate the prompt.
+Example: Start with 'You are a helpful assistant specialized in...'
+"""
+prompt_writer = agent(model, system_prompt=prompt_writer_system_prompt, output_model=SystemPrompt)
+</code></pre>
+                    </li>
+                    <li><strong>Create the Assistant Agent:</strong>
+                        <pre><code class="language-python">assistant_agent = agent(model)
+
+@assistant_agent.system_prompt
+def generated_prompt(context: RunContext):
+    return context.dependencies["generated_prompt"]
+
+@assistant_agent.system_prompt
+def generated_tags(context: RunContext):
+  return " ".join(context.dependencies["generated_tags"])
+</code></pre>
+                    </li>
+                    <li><strong>Run in a Loop:</strong>
+                        <ul>
+                            <li>First, get the system prompt from the <code>prompt_writer</code>.</li>
+                            <li>Then, run the <code>assistant_agent</code> in a loop, passing the generated prompt as a dependency.</li>
+                            <li>Use message history for context retention.</li>
+                        </ul>
+                        <pre><code class="language-python">message_history = []
+user_question = input("Ask a question: ")
+
+# Get the system prompt
+prompt_result = prompt_writer.run_sync(prompt=user_question)
+generated_system_prompt = prompt_result.prompt
+generated_tags = prompt_result.tags
+
+while True:
+    #Run the assistant.
+    result = assistant_agent.run_sync(
+        prompt=user_question,
+        message_history=message_history,
+        dependencies={"generated_prompt": generated_system_prompt, "generated_tags": generated_tags},
+    )
+
+    message_history.append({"role": "user", "content": user_question})
+    message_history.append({"role": "assistant", "content": str(result)})
+
+    print(f"Assistant: {result}")
+    user_question = input("Ask another question (or type 'exit' to quit): ")
+    if user_question.lower() == 'exit':
+        break
+</code></pre>
+                    </li>
+                </ol>
+
+                <hr>
+
+                <h2 id="bonus-example---enhanced-business-coach">Bonus Example - Enhanced Business Coach</h2>
+                <p>Steps are identical to example 1, the only change is that instead of using:</p>
+                <pre><code class="language-python">system_prompt = "You're an experienced business coach specializing in guiding technology startups."
+</code></pre>
+                <p>A more detailed <code>system_prompt</code> is used.</p>
+                <pre><code class="language-python">system_prompt = """You're an experienced business coach specializing in guiding technology startups from ideation to sustainable growth.
+... (Include detailed aspects such as Product-Market Fit, Venture Capital, Team Management, Monetization, etc.) ...
+"""
+</code></pre>
+                <p>Then the agent is created and executed as in Example 1.</p>
+            </div>
+        </article>
+    </div>
+
+    <style>body{font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:1.8;font-weight:300;color:#111;background-color:#fdfdfd}.wrapper{max-width:800px;margin-right:auto;margin-left:auto;padding-right:30px;padding-left:30px}.post-header{margin-bottom:30px}.post-title{font-size:42px;line-height:1.2;margin-bottom:15px}.post-meta{font-size:14px;color:#828282;margin-bottom:15px}.post-content{margin-bottom:30px}.post-content h2{font-size:32px;margin-top:30px;margin-bottom:15px;font-weight:300}.post-content h3{font-size:26px;margin-top:25px;margin-bottom:15px;font-weight:300}.post-content h4{font-size:20px;margin-top:20px;margin-bottom:15px;font-weight:300}.post-content ol,.post-content p,.post-content ul{margin-bottom:15px}.post-content ol,.post-content ul{margin-left:30px}.post-content blockquote{color:#828282;border-left:4px solid #9c9c9c;padding-left:15px;font-size:18px;font-style:italic;margin-bottom:15px}.post-content pre{font-size:15px;border:1px solid #9c9c9c;border-radius:3px;background-color:#eef;padding:8px 12px;overflow-x:auto;margin-bottom:15px}.post-content code{font-size:15px;border:1px solid #9c9c9c;border-radius:3px;background-color:#eef;padding:1px 5px}.post-content hr{border:none;border-bottom:1px solid #9c9c9c;margin:30px 0}.post-content a{color:#2a7ae2;text-decoration:none}.post-content a:hover{color:#111;text-decoration:underline}</style>
+    <!-- Instruction = <!-- Rest of the sections remain unchanged --></div></section><section class="mb-3"><h4 class="section-title explore-more"><span>Explore More</span></h4><div class=""><div class="card mb-3 d-flex flex-row has-img"><div class="col-2 p-0 explore-featured-image"><a class="card-img-left card-has-img" href="https://ccwithai.github.io/AI/blog/review-of-pydantics-ai-framework-d2e8f/"><img src="https://ccwithai.github.io/AI/assets/images/7a09f3181c.png" loading="lazy"></a></div><div class="card-body col"><a class="card-title" href="https://ccwithai.github.io/AI/blog/review-of-pydantics-ai-framework-d2e8f/">CC AI Review of Pydantic&#x27;s AI Framework - Game Changer!!</a><p class="card-text">``` The landscape of web development was irrevocab...</p></div></div></div></section></div></div></div></div></main><footer class="page-footer"><div class="container"><div class="row"><div class="col col-12 col-md-6"><span>© <!-- -->AI</span></div><div class="col col-12 col-md-6 mt-3 mt-md-0 d-flex justify-content-md-end"><a href="https://prss.io" class="d-flex align-items-center footer-shoutout" target="_blank" rel="noopener" title="Powered by PRSS Site Creator"><img class="prss-footer-image mr-1" src="data:image/png;base64,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" width="15"><span class="font-weight-bold prss-tag">PRSS Site Creator</span></a></div></div></div></footer></div></div>
+
+</body></html>
