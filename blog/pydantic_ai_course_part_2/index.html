@@ -1,79 +1,113 @@
-<!DOCTYPE html><html lang="en"><head><meta name="description" content="Blog home page / landing page contains the latest Ai news articles uploaded everyday about the latest breaking news."><meta name="twitter:description" content="Blog home page / landing page contains the latest Ai news articles uploaded everyday about the latest breaking news."><meta name="robots" content="index, follow"><meta property="og:locale" content="en_UK"><meta property="og:title" content="CCwithAI's Blog Site - AI news with articles on how to use AI in your business and personal life."><link rel="canonical" href="https://ccwithai.github.io/AI/"><meta property="og:url" content="https://ccwithai.github.io/AI/"><meta property="og:site_name" content="CCwithAi - Blog - Latest AI News - AI Guides"><meta name="twitter:image:src" content="https://ccwithai.github.io/AI/assets/images/9205ffbe4d.png"><meta property="og:image" content="https://ccwithai.github.io/AI/assets/images/9205ffbe4d.png"><meta name="twitter:card" content="summary_large_image"><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@hodgef/slate-theme@3.0.9/build/post.css" rel="stylesheet"><title>Pydantic AI Course - Part 2 - AI</title></head><body><script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script><div id="root" class="is-ssr"><div class="page page-post"><header class="page-header"><div class="header-nav"><div class="container"><nav class="row navbar navbar-expand-lg navbar-dark"><a class="navbar-brand logo" href="https://ccwithai.github.io/AI/">AI</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent"><ul class="page-menu navbar-nav"><li class="nav-item"><a class="nav-link" href="https://ccwithai.github.io/AI/">Home</a><div class="dropdown-menu"></div></li><li class="nav-item active"><a class="nav-link" href="https://ccwithai.github.io/AI/blog/">Blog</a><div class="dropdown-menu"></div></li></ul></div></nav></div></div></header><main><div class="container main-container"><div class="row"><div class="col"><div class="content"><div class="post-title-container mb-2"><div class="row justify-content-between"><div class="col-12 col-lg d-lg-flex flex-column justify-content-center"><h1 class="mb-0">Pydantic AI Course - Part 2</h1><div class="text-muted mt-3 date post-date d-flex align-items-center" title="08 Feb, 2025"><i class="fa fa-clock-o mr-2"></i><span>Published on <!-- -->08 Feb, 2025</span></div></div></div></div><div class="featured-image" style="background-image:url(https://ccwithai.github.io/AI/assets/images/9205ffbe4d.png)"></div><section class="post-content mb-3 pb-5"><div class="post-inner-content"><div style="background-color:#f7f7f7;border:1px solid #ddd;padding:10px;border-radius:5px">
-    <h2 style="font-weight:700;font-size:24px;margin-bottom:10px">Mastering Pydantic Logfire: A New Framework for Observability</h2>
-    <p style="font-size:16px;margin-bottom:20px">I'm excited to share my experience with Logfire, a new type of observability platform built on Open Telemetry by the same team behind Pantic AI. With its amazing support for Python, Logfire is a game-changer for building AI agents. In this post, I'll walk you through how to set up and use Logfire, highlighting its key features and benefits.</p>
-    <h3 style="font-weight:700;font-size:18px;margin-bottom:10px">Why Logfire Matters</h3>
-    <p style="font-size:16px;margin-bottom:20px">When building AI agents, reliability is crucial. Unfortunately, Large Language Models (LLMs) are notoriously unreliable, making them the "worst databases" as the Pantic team put it. This is where Logfire comes in – providing a solid tracing and debugging system that can save hours of troubleshooting time. By setting up dashboards and alerts, you can monitor and react to emerging issues before they cause disruptions or outages.</p>
-    <h3 style="font-weight:700;font-size:18px;margin-bottom:10px">Getting Started with Logfire</h3>
-    <p style="font-size:16px;margin-bottom:20px">To set up Logfire, I created a developer account, installed the SDK with a simple command, authenticated with Logfire, and started sending data. The process is quite easy, and the documentation provides great examples to get you started.</p>
-    <h3 style="font-weight:700;font-size:18px;margin-bottom:10px">Configuring Logfire</h3>
-    <p style="font-size:16px;margin-bottom:20px">After setting up my project in Logfire, I explored the user interface, which includes dashboards, alerts, and settings. I created a new project, followed the setup instructions for development, and installed Logfire with a pip install command. Next, I authenticated with Logfire, created a Tomel file, and specified my project.</p>
-    <h3 style="font-weight:700;font-size:18px;margin-bottom:10px">Hello World Example</h3>
-    <p style="font-size:16px;margin-bottom:20px">To test my setup, I created a simple Python script that sent an info statement to Logfire. The script consisted of just three lines of code, importing Logfire, configuring it, and sending the data. I was thrilled to see the "hello world" message successfully logged on the Logfire website.</p>
-    <h3 style="font-weight:700;font-size:18px;margin-bottom:10px">Using Spans and Log Levels</h3>
-    <p style="font-size:16px;margin-bottom:20px">In the next examples, I explored Logfire's span feature, which allows me to organize my logs by context. I created a span, logged a message, and set an attribute. On the Logfire website, I could see my span and the contained log message. I also experimented with different log levels, including notice, info, debug, warning, error, and fatal. Logfire's color-coding system makes it easy to distinguish between these levels.</p>
-    <h3 style="font-weight:700;font-size:18px;margin-bottom:10px">Logging Exceptions</h3>
-    <p style="font-size:16px;margin-bottom:20px">To demonstrate how to log exceptions, I created a try-catch block and raised a ValueError. On the Logfire website, I could see the exception marked in red, making it easy to identify and prioritize. I also used SQL filters to isolate exceptions and fetch specific log messages.</p>
-    <h3 style="font-weight:700;font-size:18px;margin-bottom:10px">Instrumenting Methods</h3>
-    <p style="font-size:16px;margin-bottom:20px">Finally, I learned how to instrument certain methods using Logfire's instrumentation feature. By adding a directive to my method, I could log entire method calls without having to manually create spans. This feature is incredibly powerful for debugging and tracing issues.</p>
-    <h3 style="font-weight:700;font-size:18px;margin-bottom:10px">Conclusion</h3>
-    <p style="font-size:16px;margin-bottom:20px">In this post, I've provided a brief overview of Logfire's key features and demonstrated how to set it up and use it with Python. Logfire's simplicity, Python-centric design, and great Pantic integration make it an attractive choice for building AI agents. With its support for structured data and SQL queries, Logfire is a valuable tool for any developer working with AI. I hope this post has inspired you to give Logfire a try and explore its many features.</p>
-    <h3 style="font-weight:700;font-size:18px;margin-bottom:10px">SECTION STEPS</h3>
-    <h4 style="font-weight:700;font-size:16px;margin-bottom:10px">**Getting Started with Logfire**</h4>
-    <ol style="list-style:decimal;padding:0;margin:0">
-        <li style="padding:10px;border-bottom:1px solid #ddd">Create a developer account at Logfire.</li>
-        <li style="padding:10px;border-bottom:1px solid #ddd">Install the Logfire SDK using a simple command.</li>
-        <li style="padding:10px;border-bottom:1px solid #ddd">Authenticate with Logfire and set up a project.</li>
-        <li style="padding:10px">Start sending data to Logfire.</li>
-    </ol>
-    <h4 style="font-weight:700;font-size:16px;margin-bottom:10px">**Setting Up Logfire**</h4>
-    <ol style="list-style:decimal;padding:0;margin:0">
-        <li style="padding:10px;border-bottom:1px solid #ddd">Navigate to the Logfire website and sign up with your GitHub account or use other authentication methods.</li>
-        <li style="padding:10px;border-bottom:1px solid #ddd">Create a new project by giving it a name.</li>
-        <li style="padding:10px;border-bottom:1px solid #ddd">Explore the project setup, including links for your account and project.</li>
-        <li style="padding:10px;border-bottom:1px solid #ddd">Set up your alerts and go to the settings.</li>
-        <li style="padding:10px;border-bottom:1px solid #ddd">Change the description, but not the project name.</li>
-        <li style="padding:10px;border-bottom:1px solid #ddd">Delete the project and follow instructions for development and production.</li>
-        <li style="padding:10px">Navigate to the project and explore the user interface.</li>
-    </ol>
-    <h4 style="font-weight:700;font-size:16px;margin-bottom:10px">**Hello World Example**</h4>
-    <ol style="list-style:decimal;padding:0;margin:0">
-        <li style="padding:10px;border-bottom:1px solid #ddd">Install Logfire using `pip install logfire`.</li>
-        <li style="padding:10px;border-bottom:1px solid #ddd">Authenticate with Logfire using `logfire off`.</li>
-        <li style="padding:10px;border-bottom:1px solid #ddd">Create a Tomel file under your user.</li>
-        <li style="padding:10px;border-bottom:1px solid #ddd">Use `logfire project use TS` to set up the project.</li>
-        <li style="padding:10px;border-bottom:1px solid #ddd">Import Logfire and call `logfire.Doc.configure`.</li>
-        <li style="padding:10px">Ascent the data with `logfire.doLog` and send an info statement.</li>
-    </ol>
-    <h4 style="font-weight:700;font-size:16px;margin-bottom:10px">**Span Feature Example**</h4>
-    <ol style="list-style:decimal;padding:0;margin:0">
-        <li style="padding:10px;border-bottom:1px solid #ddd">Create a span using `logfire.span`.</li>
-        <li style="padding:10px;border-bottom:1px solid #ddd">Organize logs by tool or context within the span.</li>
-        <li style="padding:10px;border-bottom:1px solid #ddd">Set the attribute `result` with the result data.</li>
-        <li style="padding:10px;border-bottom:1px solid #ddd">Log the result data using `logfire.doLog`.</li>
-        <li style="padding:10px">Navigate to the Logfire dashboard to see the span and info log.</li>
-    </ol>
-    <h4 style="font-weight:700;font-size:16px;margin-bottom:10px">**Log Levels Example**</h4>
-    <ol style="list-style:decimal;padding:0;margin:0">
-        <li style="padding:10px;border-bottom:1px solid #ddd">Log different levels (notice, info, debug, warning, error, and fatal).</li>
-        <li style="padding:10px;border-bottom:1px solid #ddd">Observe the different levels on the Logfire dashboard.</li>
-        <li style="padding:10px;border-bottom:1px solid #ddd">Use different coloring to distinguish between levels.</li>
-    </ol>
-    <h4 style="font-weight:700;font-size:16px;margin-bottom:10px">**Logging Exceptions Example**</h4>
-    <ol style="list-style:decimal;padding:0;margin:0">
-        <li style="padding:10px;border-bottom:1px solid #ddd">Log exceptions using a try-catch block.</li>
-        <li style="padding:10px;border-bottom:1px solid #ddd">Catch the exception and log it using Logfire.</li>
-        <li style="padding:10px;border-bottom:1px solid #ddd">Explore the exception on the Logfire dashboard.</li>
-        <li style="padding:10px">Use SQL to filter exceptions and fatal errors.</li>
-    </ol>
-    <h4 style="font-weight:700;font-size:16px;margin-bottom:10px">**Instrumenting Methods Example**</h4>
-    <ol style="list-style:decimal;padding:0;margin:0">
-        <li style="padding:10px;border-bottom:1px solid #ddd">Use `logfire.instrument` to instrument a method.</li>
-        <li style="padding:10px;border-bottom:1px solid #ddd">Define the method and pass a message.</li>
-        <li style="padding:10px;border-bottom:1px solid #ddd">Run the method and observe the logs on the Logfire dashboard.</li>
-        <li style="padding:10px">Explore the row data to see the method call and response.</li>
-    </ol>
-    <h3 style="font-weight:700;font-size:18px;margin-bottom:10px">Summary and Next Steps</h3>
-    <p style="font-size:16px;margin-bottom:20px">Logfire is a new framework from the same team as Pantic AI. It's simple to use, Python-centric, and has great Pantic integration. It uses open Telemetry and supports structured data. It allows SQL queries for filtering and debugging. Next, we'll explore parsing text and getting structured outputs from Pantic AI.</p>
-</div></div></section><section class="mb-3"><h4 class="section-title explore-more"><span>Explore More</span></h4><div class=""><div class="card mb-3 d-flex flex-row has-img"><div class="col-2 p-0 explore-featured-image"><a class="card-img-left card-has-img" href="https://ccwithai.github.io/AI/blog/deepseek-r1-and-deepseek-r1-zero/"><img src="https://ccwithai.github.io/AI/assets/images/87e740f638.png" loading="lazy"></a></div><div class="card-body col"><a class="card-title" href="https://ccwithai.github.io/AI/blog/deepseek-r1-and-deepseek-r1-zero/">DeepSeek Unveils Revolutionary AI Models: DeepSeek-R1 and DeepSeek-R1-Zero</a><p class="card-text">DeepSeek, a pioneering AI research organisation, h...</p></div></div></div></section></div></div></div></div></main><footer class="page-footer"><div class="container"><div class="row"><div class="col col-12 col-md-6"><span>© <!-- -->AI</span></div><div class="col col-12 col-md-6 mt-3 mt-md-0 d-flex justify-content-md-end"><a href="https://prss.io" class="d-flex align-items-center footer-shoutout" target="_blank" rel="noopener" title="Powered by PRSS Site Creator"><img class="prss-footer-image mr-1" src="data:image/png;base64,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" width="15"><span class="font-weight-bold prss-tag">PRSS Site Creator</span></a></div></div></div></footer></div></div>
+<!DOCTYPE html><html lang="en"><head><meta name="description" content="Blog home page / landing page contains the latest Ai news articles uploaded everyday about the latest breaking news."><meta name="twitter:description" content="Blog home page / landing page contains the latest Ai news articles uploaded everyday about the latest breaking news."><meta name="robots" content="index, follow"><meta property="og:locale" content="en_UK"><meta property="og:title" content="CCwithAI's Blog Site - AI news with articles on how to use AI in your business and personal life."><link rel="canonical" href="https://ccwithai.github.io/AI/"><meta property="og:url" content="https://ccwithai.github.io/AI/"><meta property="og:site_name" content="CCwithAi - Blog - Latest AI News - AI Guides"><meta name="twitter:image:src" content="https://ccwithai.github.io/AI/assets/images/9205ffbe4d.png"><meta property="og:image" content="https://ccwithai.github.io/AI/assets/images/9205ffbe4d.png"><meta name="twitter:card" content="summary_large_image"><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@hodgef/slate-theme@3.0.9/build/post.css" rel="stylesheet"><title>Pydantic AI Course - Part 2 - AI</title></head><body><script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script><div id="root" class="is-ssr"><div class="page page-post"><header class="page-header"><div class="header-nav"><div class="container"><nav class="row navbar navbar-expand-lg navbar-dark"><a class="navbar-brand logo" href="https://ccwithai.github.io/AI/">AI</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent"><ul class="page-menu navbar-nav"><li class="nav-item"><a class="nav-link" href="https://ccwithai.github.io/AI/">Home</a><div class="dropdown-menu"></div></li><li class="nav-item active"><a class="nav-link" href="https://ccwithai.github.io/AI/blog/">Blog</a><div class="dropdown-menu"></div></li></ul></div></nav></div></div></header><main><div class="container main-container"><div class="row"><div class="col"><div class="content"><div class="post-title-container mb-2"><div class="row justify-content-between"><div class="col-12 col-lg d-lg-flex flex-column justify-content-center"><h1 class="mb-0">Pydantic AI Course - Part 2</h1><div class="text-muted mt-3 date post-date d-flex align-items-center" title="08 Feb, 2025"><i class="fa fa-clock-o mr-2"></i><span>Published on <!-- -->08 Feb, 2025</span></div></div></div></div><div class="featured-image" style="background-image:url(https://ccwithai.github.io/AI/assets/images/9205ffbe4d.png)"></div><section class="post-content mb-3 pb-5"><div class="post-inner-content">
+
+
+    <div class="wrapper">
+        <article class="post">
+            <header class="post-header">
+                <h1 class="post-title">Mastering Pydantic Logfire: A New Framework for Observability</h1>
+                <p class="post-meta"></p>
+            </header>
+
+            <div class="post-content">
+                <p>Logfire is a new type of observability platform built on Open Telemetry by the same team behind Pantic AI.</p>
+
+                <p>With its amazing support for Python, Logfire is a game-changer for building AI agents.</p>
+
+                <p>In this post, I'll walk you through how to set up and use Logfire, highlighting its key features and benefits.</p>
+
+                <h2 id="why-logfire-matters">Why Logfire Matters</h2>
+                <p>When building AI agents, reliability is crucial. Unfortunately, Large Language Models (LLMs) are notoriously unreliable, making them the "worst databases" as the Pantic team put it. This is where Logfire comes in – providing a solid tracing and debugging system that can save hours of troubleshooting time. By setting up dashboards and alerts, you can monitor and react to emerging issues before they cause disruptions or outages.</p>
+
+                <h2 id="getting-started-with-logfire">Getting Started with Logfire</h2>
+                <p>To set up Logfire, I created a developer account, installed the SDK with a simple command, authenticated with Logfire, and started sending data. The process is quite easy, and the documentation provides great examples to get you started.</p>
+
+                <h2 id="configuring-logfire">Configuring Logfire</h2>
+                <p>After setting up my project in Logfire, I explored the user interface, which includes dashboards, alerts, and settings. I created a new project, followed the setup instructions for development, and installed Logfire with a pip install command. Next, I authenticated with Logfire, created a Tomel file, and specified my project.</p>
+
+                <h2 id="hello-world-example">Hello World Example</h2>
+                <p>To test my setup, I created a simple Python script that sent an info statement to Logfire. The script consisted of just three lines of code, importing Logfire, configuring it, and sending the data. I was thrilled to see the "hello world" message successfully logged on the Logfire website.</p>
+
+                <h2 id="using-spans-and-log-levels">Using Spans and Log Levels</h2>
+                <p>In the next examples, I explored Logfire's span feature, which allows me to organize my logs by context. I created a span, logged a message, and set an attribute. On the Logfire website, I could see my span and the contained log message. I also experimented with different log levels, including notice, info, debug, warning, error, and fatal. Logfire's color-coding system makes it easy to distinguish between these levels.</p>
+
+                <h2 id="logging-exceptions">Logging Exceptions</h2>
+                <p>To demonstrate how to log exceptions, I created a try-catch block and raised a ValueError. On the Logfire website, I could see the exception marked in red, making it easy to identify and prioritize. I also used SQL filters to isolate exceptions and fetch specific log messages.</p>
+
+                <h2 id="instrumenting-methods">Instrumenting Methods</h2>
+                <p>Finally, I learned how to instrument certain methods using Logfire's instrumentation feature. By adding a directive to my method, I could log entire method calls without having to manually create spans. This feature is incredibly powerful for debugging and tracing issues.</p>
+
+                <h2 id="conclusion">Conclusion</h2>
+                <p>In this post, I've provided a brief overview of Logfire's key features and demonstrated how to set it up and use it with Python. Logfire's simplicity, Python-centric design, and great Pantic integration make it an attractive choice for building AI agents. With its support for structured data and SQL queries, Logfire is a valuable tool for any developer working with AI. I hope this post has inspired you to give Logfire a try and explore its many features.</p>
+
+                <h2 id="section-steps">SECTION STEPS</h2>
+                <h3 id="getting-started-with-logfire-1"><strong>Getting Started with Logfire</strong></h3>
+                <ul>
+                    <li>Create a developer account at Logfire.</li>
+                    <li>Install the Logfire SDK using a simple command.</li>
+                    <li>Authenticate with Logfire and set up a project.</li>
+                    <li>Start sending data to Logfire.</li>
+                </ul>
+
+                <h3 id="setting-up-logfire-1"><strong>Setting Up Logfire</strong></h3>
+                <ul>
+                    <li>Navigate to the Logfire website and sign up with your GitHub account or use other authentication methods.</li>
+                    <li>Create a new project by giving it a name.</li>
+                    <li>Explore the project setup, including links for your account and project.</li>
+                    <li>Set up your alerts and go to the settings.</li>
+                    <li>Change the description, but not the project name.</li>
+                    <li>Delete the project and follow instructions for development and production.</li>
+                    <li>Navigate to the project and explore the user interface.</li>
+                </ul>
+
+                <h3 id="hello-world-example-1"><strong>Hello World Example</strong></h3>
+                <ul>
+                    <li>Install Logfire using <code>pip install logfire</code>.</li>
+                    <li>Authenticate with Logfire using <code>logfire off</code>.</li>
+                    <li>Create a Tomel file under your user.</li>
+                    <li>Use <code>logfire project use TS</code> to set up the project.</li>
+                    <li>Import Logfire and call <code>logfire.Doc.configure</code>.</li>
+                    <li>Ascent the data with <code>logfire.doLog</code> and send an info statement.</li>
+                </ul>
+
+                <h3 id="span-feature-example-1"><strong>Span Feature Example</strong></h3>
+                <ul>
+                    <li>Create a span using <code>logfire.span</code>.</li>
+                    <li>Organize logs by tool or context within the span.</li>
+                    <li>Set the attribute <code>result</code> with the result data.</li>
+                    <li>Log the result data using <code>logfire.doLog</code>.</li>
+                    <li>Navigate to the Logfire dashboard to see the span and info log.</li>
+                </ul>
+
+                <h3 id="log-levels-example-1"><strong>Log Levels Example</strong></h3>
+                <ul>
+                    <li>Log different levels (notice, info, debug, warning, error, and fatal).</li>
+                    <li>Observe the different levels on the Logfire dashboard.</li>
+                    <li>Use different coloring to distinguish between levels.</li>
+                </ul>
+
+                <h3 id="logging-exceptions-example-1"><strong>Logging Exceptions Example</strong></h3>
+                <ul>
+                    <li>Log exceptions using a try-catch block.</li>
+                    <li>Catch the exception and log it using Logfire.</li>
+                    <li>Explore the exception on the Logfire dashboard.</li>
+                    <li>Use SQL to filter exceptions and fatal errors.</li>
+                </ul>
+
+                <h3 id="instrumenting-methods-example-1"><strong>Instrumenting Methods Example</strong></h3>
+                <ul>
+                    <li>Use <code>logfire.instrument</code> to instrument a method.</li>
+                    <li>Define the method and pass a message.</li>
+                    <li>Run the method and observe the logs on the Logfire dashboard.</li>
+                    <li>Explore the row data to see the method call and response.</li>
+                </ul>
+
+                <h2 id="summary-and-next-steps">Summary and Next Steps</h2>
+                <p>Logfire is a new framework from the same team as Pantic AI. It's simple to use, Python-centric, and has great Pantic integration. It uses open Telemetry and supports structured data. It allows SQL queries for filtering and debugging. Next, we'll explore parsing text and getting structured outputs from Pantic AI.</p>
+            </div>
+        </article>
+    </div>
+
+    <style>body{font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:1.8;font-weight:300;color:#111;background-color:#fdfdfd}.wrapper{max-width:800px;margin-right:auto;margin-left:auto;padding-right:30px;padding-left:30px}.post-header{margin-bottom:30px}.post-title{font-size:42px;line-height:1.2;margin-bottom:15px}.post-meta{font-size:14px;color:#828282;margin-bottom:15px}.post-content{margin-bottom:30px}.post-content h2{font-size:32px;margin-top:30px;margin-bottom:15px;font-weight:300}.post-content h3{font-size:26px;margin-top:25px;margin-bottom:15px;font-weight:300}.post-content h4{font-size:20px;margin-top:20px;margin-bottom:15px;font-weight:300}.post-content ol,.post-content p,.post-content ul{margin-bottom:15px}.post-content ol,.post-content ul{margin-left:30px}.post-content blockquote{color:#828282;border-left:4px solid #9c9c9c;padding-left:15px;font-size:18px;font-style:italic;margin-bottom:15px}.post-content pre{font-size:15px;border:1px solid #9c9c9c;border-radius:3px;background-color:#eef;padding:8px 12px;overflow-x:auto;margin-bottom:15px}.post-content code{font-size:15px;border:1px solid #9c9c9c;border-radius:3px;background-color:#eef;padding:1px 5px}.post-content hr{border:none;border-bottom:1px solid #9c9c9c;margin:30px 0}.post-content a{color:#2a7ae2;text-decoration:none}.post-content a:hover{color:#111;text-decoration:underline}</style>
+    <!-- Instruction = <!-- Rest of the sections remain unchanged --></div></section><section class="mb-3"><h4 class="section-title explore-more"><span>Explore More</span></h4><div class=""><div class="card mb-3 d-flex flex-row has-img"><div class="col-2 p-0 explore-featured-image"><a class="card-img-left card-has-img" href="https://ccwithai.github.io/AI/blog/pydantic_ai_part_3/"><img src="https://ccwithai.github.io/AI/assets/images/32f15cde15.png" loading="lazy"></a></div><div class="card-body col"><a class="card-title" href="https://ccwithai.github.io/AI/blog/pydantic_ai_part_3/">Pydantic AI Part 3</a><p class="card-text">This guide demonstrates how to create AI agents us...</p></div></div></div></section></div></div></div></div></main><footer class="page-footer"><div class="container"><div class="row"><div class="col col-12 col-md-6"><span>© <!-- -->AI</span></div><div class="col col-12 col-md-6 mt-3 mt-md-0 d-flex justify-content-md-end"><a href="https://prss.io" class="d-flex align-items-center footer-shoutout" target="_blank" rel="noopener" title="Powered by PRSS Site Creator"><img class="prss-footer-image mr-1" src="data:image/png;base64,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" width="15"><span class="font-weight-bold prss-tag">PRSS Site Creator</span></a></div></div></div></footer></div></div>
 
 </body></html>
